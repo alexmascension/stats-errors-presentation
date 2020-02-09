@@ -1,0 +1,477 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- For custom controls -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="titulo-y-paper">
+				<section style="width: 100%">
+					<h2 style="text-align: left; color: #8c0d04">
+						Common stats mistakes for scientists
+					</h2>
+					<hr>
+					<table style="width:100%; padding-left: 0%">
+						<tr style="color: #909090; ">
+							<th style="font-weight: lighter; padding-left: 0%; padding-top: 10%">
+								Alex M. Ascensión
+							</th>
+							<th style="font-weight: lighter; padding-right: 0%; padding-top: 10%; text-align: right">
+								<span id="datetime"></span>
+
+								<script>
+									var dt = new Date();
+									document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+								</script>
+							</th>
+						</tr>
+					</table>
+
+					<aside class="notes">
+						En esta presentación voy no voy a presentaros lo que estoy trabajando, sino un paper que me encontré el otro día
+						y me resultó interesante. Es un paper en el que hablan sobre los problemas estadísticos más usuales que se presentan en ciencia.
+					</aside>
+				</section>
+
+				<section id="portada imagen">
+					<img class="plain" src="figs/portada.png">
+
+					<aside class="notes">
+						El paper en cuestión es este. En él plantean 10 situaciones y la estructura para cada ella es similar: primero presentan el problema,
+						y después como detectarlo, y solucionarlo si es posible. En la presentación no pondré todos los casos, pero sí que añadiré alguno que 
+						he ido encontrando por mi cuenta.s
+					</aside>
+				</section>
+
+
+			</section>
+			
+
+
+
+
+			<section>
+				<section data-background="#CC503E">
+					<h1>I</h1>
+					<h2>Absence of [quality] control group</h2>
+				</section>
+
+				<section style="text-align: left">
+					<aside class="notes">
+						Qué queremos decir con la ausencia de controles de calidad? Pongamos un ejemplo. Queremos estudiar el comportamiento de un fármaco
+						en pacientes esquizofrénicos. // 
+
+						Entonces tenemos un grupo experimental con varias variables, como el peso, altura, etc. //
+
+						En un control de verdad, sólo una de todas las variables tiene que estar alterada, en este caso, que en lugar del fármaco damos
+						un placebo. //
+
+						Sin embargo, es probable que a la hora de diseñar el experimento no consideremos otras variables.
+					</aside>
+					<!-- <h3 style="padding-bottom: 5%">The problem</h3> -->
+					<p> <span class="fragment">Test</span></p>
+					<p>
+						<span class="fragment">$\stackrel{\text{weight}}{\Large A}\;\;$</span>
+						<span class="fragment">$\stackrel{\text{height}}{\Large B}\;\;$</span>
+						<span class="fragment">$\stackrel{\text{age}}{\Large C}\;\;$</span>
+						<span class="fragment"> $\cdots\;\;$
+							$\stackrel{\text{income}}{\Large X}\;\;$
+							$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
+						$\stackrel{\text{drug X}}{\Large Z}$ </span>
+					</p>
+
+					<span class="fragment"><p style="padding-top: 1%"> Control [ideal]</p>
+						<p>
+							$\stackrel{\text{weight}}{\Large A}\;\;$
+							$\stackrel{\text{height}}{\Large B}\;\;$
+							$\stackrel{\text{age}}{\Large C}\;\;$
+							$\cdots\;\;$
+							$\stackrel{\text{income}}{\Large X}\;\;$
+							$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
+							$\stackrel{\text{placebo}}{\Large \color{#8c0d04}{Z^*}}$ 
+						</p></span>
+
+						<span class="fragment"><p style="padding-top: 1%"> Control [real]</p>
+							<p>
+								$\stackrel{\text{weight}}{\Large A}\;\;$
+								$\stackrel{\text{height}}{\Large \color{#8c0d04}{B^*}}\;\;$
+								$\stackrel{\text{age}}{\Large C}\;\;$
+								$\cdots\;\;$
+								$\stackrel{\text{income}}{\Large \color{#8c0d04}{X^*}}\;\;$
+								$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
+								$\stackrel{\text{placebo}}{\Large \color{#8c0d04}{Z^*}}$ 
+							</p></span>
+							<aside class="notes">
+
+							</aside>
+						</section>
+
+						<section style="text-align: left">
+							<h2>Common problems</h2>
+							<ul>
+								<span class="fragment"><li>Experimenters are not blinded</li></span>
+								<span class="fragment"><li>Control & exp. groups sampled at different times</li></span>
+								<span class="fragment"><li>$N_{\text{control}} \neq N_{\text{exp}}$</li></span>
+							</ul>
+						</section>
+
+						<section style="text-align: left" data-background="/figs/dummy.jpg" data-background-opacity=0.2>
+							<aside class="notes">
+								Un ejemplo clásico fue el diseño de los tests de seguridad de vehículos. Los coches se diseñan
+								de modo que se minimiza el riesgo para los dummies. Pero los dummies son de composicion de hombre, luego
+								las mujeres sufren más daños en el mismo tipo de accidente, y más muertes.
+							</aside>
+
+							<h3>Some examples (I)</h3>
+							<p>Dummies are designed as average <b>male</b> (based on height/weight) </p>
+							<blockquote>
+								&ldquo;The fatality risk of a female driver is an estimated 17.0 ± 1.5 percent higher than for a male of the same age, given similar physical insults.&rdquo;
+								<a href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/811766"> NHTSA </a>
+							</blockquote> 
+						</section>
+
+						<section style="text-align: left" data-background="/figs/ambien.jpg" data-background-opacity=0.15>
+							<aside class="notes">
+								En este caso hablaremos de Ambien, un sedante. El ensayo clinico desarrollado para ambien solo fue testado en hombres. 
+								Varones caucásicos, 30 años, 70 kg. Resulta que las mujeres metabolizan el fármaco más lento. Como resultado, la FDA 
+								ha aconsejado a reducir a la mitad la dosis para mujeres.
+							</aside>
+
+							<h3>Some examples (II)</h3>
+							<span class="fragment"><p>Ambien (zolpidem) is a sedative.</p></span> 
+							<span class="fragment"><p>Clinical trials were done in caucasic men, age 30, weight $\sim$ 70 kg.</p></span> 
+							<span class="fragment"><p>Women metabolize ambien more slowly $\rightarrow$ women driving to work still groggy.</p></span> 
+							<span class="fragment"><p>FDA recommended halving the intake (<a href="https://www.nytimes.com/2013/01/11/health/fda-requires-cuts-to-dosages-of-ambien-and-other-sleep-drugs.html">source</a>).</p></span> 
+						</section>
+
+						<section style="text-align: left">
+							<h2>Solution <span class="fragment" style="color: #CC503E">[hard]</span></h2>
+							<span class="fragment"><p>Be aware of as many variables as possible</p>
+							</span>
+							<span class="fragment"><p>Present conclusions as tentative</p></span>
+						</section>
+					</section>
+
+
+
+
+
+					<section>
+						<section data-background="#EDAD08">
+							<aside class="notes">
+								Como concepto básico de estadística tenemos los grados de libertad. Es hablo de los grados de libertad por las equivocaciones típicas que hay con ellos, además de que 
+								otros fallos típicos también están asociados a los grados de libertad.
+							</aside>
+							<h1>II</h1>
+							<h2>Inflating the degrees of freedom</h2>
+						</section>
+
+						<section style="text-align: left">
+							<aside class="notes">
+								DEFINIR GRADO DE LIBERTAD // Por ejemplo, suponemos que queremos estimar la media de la altura de una población y tenemos 10 personas.
+								Los grados de libertad son 9 porque la altura de la décima persona puede sacarse en base a la altura de las 9 personas y la media.
+							</aside>
+							<h2>What is a degree of freedom?</h2>
+							<span class="fragment"><p>N of <b>independent</b> pieces of information to calculate the estimate</p>
+							</span>
+							<ul>
+								<span class="fragment"><li>DoF 1 sample: $N-1$</li></span>
+								<span class="fragment"><li>DoF 2 samples: $N_1 + N_2 - 2$</li></span>
+							</ul>
+						</section>	
+
+						<section style="text-align: left">
+							<aside class="notes">
+								Vamos a simular datos normales. En este caso, van a tener media 0.5 y desviación 1. Queremos ver si la media de la población 
+								es mayor que 0.
+							</aside>
+
+							<h2>Why are DoF important?  </h2><h4>(1 sample)</h4>
+							<span class="fragment">
+								We are going to simulate normal data: $X \sim N(\mu_X, \sigma_X)$.
+								We want to test whether $\mu_X > 0$. </span>
+								<span class="fragment"> <p style="text-align: center; padding-top: 5%">$\begin{cases}
+									H_0: \hat{\mu}_X \le 0 \\
+									H_1: \hat{\mu}_X > 0
+
+								\end{cases}$</p></span>
+
+							</section>	
+
+							<section >
+								<aside class="notes">
+									Suponemos dos casos. En el caso de la izquierda tenemos 20 puntos, luego los grados de libertad son 19. En el 
+									caso de la derecha tenemos que hemos duplicado los puntos para tener un total de 40, luego los grados de libertad
+									son 39. En este caso, por ejemplo, la distribución de la izquierda no aseguramos que tenga media mayor que 0, pero en 
+									la de la derecha sí.
+								</aside>
+								<h2 style="text-align: left">Why are DoF important?  </h2><h4 style="text-align: left">(1 sample)</h4>
+								<img src="/figs/II-pvalues-20VS40.svg" text-align="center" class="plain" width="65%">						
+							</section>	
+
+							<section >
+								<aside class="notes">
+									Ahora extendemos el caso a varias N. Vamos a suponer que simulamos 1000 veces una población con media 0, 0.5, y 1. 
+									El contraste de hipótesis anterior se cumple en 0.05 para mu = 0.5 en N = 30. Entonces si tomamos duplicamos el 
+									DoF, con hasta N = 30 sufrimos ese fenómeno, y el resultado del contraste sería falso.
+								</aside>
+								<h2 style="text-align: left">Why are DoF important?  </h2><h4 style="text-align: left">(1 sample)</h4>
+								<img src="/figs/II-pvalues-N.svg" text-align="center" class="plain" width="65%">								
+							</section>	
+
+							<section >
+								<aside class="notes">
+									Vamos a practicar esto con dos ejemplos tipicos que suelen fallarse.
+								</aside>
+								<h2 style="text-align: left">Extending DoF to 2 samples.</h2>
+								<span class="fragment">
+									<img src="/figs/II-DROGA+PLACEBO.svg" text-align="center" class="plain" width="100%">	
+								</span>
+
+
+								<div class="row">
+									<div class="column"><span class="fragment"><p>What is the DoF?</p></span></div>
+									<div class="column"><span class="fragment"><p>20 - 2 = 18</p>
+										<p>$\tiny{\begin{cases}
+											H_0: \mu_A = \mu_B\\
+											H_1: \mu_A \neq \mu_B
+										\end{cases}}$</p></span>
+									</div>
+								</div> 
+							</section>	
+
+
+							<section >
+								<aside class="notes">
+									Vamos a practicar esto con dos ejemplos tipicos que suelen fallarse. En este primer caso tenemos 10 personas a las que se les da un placebo
+									y 10 a las que se les da una droga. Cual es la $N$ 20 - 2 = 18
+								</aside>
+								<h2 style="text-align: left">Extending DoF to 2 samples.</h2>
+								<span class="fragment">
+									<img src="/figs/II-DROGA+TIEMPO.svg" text-align="center" class="plain" width="100%">	
+								</span>
+
+
+								<div class="row">
+									<div class="column"><span class="fragment"><p>What is the DoF?</p></span></div>
+									<div class="column"><span class="fragment"><p>10 - 1 = 9</p>
+										<p>$\tiny{D = x_t - x_0\;\;\begin{cases}
+											H_0: \mu_D = 0\\
+											H_1: \mu_D \neq 0
+										\end{cases}}$</p></span>
+									</div>
+								</div> 
+							</section>	
+
+
+							<section style="text-align: left">
+								<aside class="notes">
+
+								</aside>
+								<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+								<span class="fragment"><p>Adapt to DoF and rerun the test.</p></span>
+								<span class="fragment"><p>If results become not significant, present them as tentative.</p></span>
+							</section>
+
+						</section>
+
+						<section>
+							<section data-background="#E17C05">
+								<aside class="notes">
+									En el segundo caso tenemos que a 10 personas se les mide la variable, se les hace tomar un medicamento, y luego se les mide la variable.
+									Entonces N = 9.
+								</aside>
+								<h1>III</h1>
+								<h2>Interpret <div style="color: #FFFFFF">comparisons</div> between groups <div style="color: #FFFFFF">without comparing</div> them</h2>
+							</section>
+
+							<section>
+								<aside class="notes">
+									En este primer caso, imaginemos que hacemos dos experimentos y nos salen las dos correlaciones. EXPLICAR P y R!!!! Si las analizamos por separado, tenemos que
+									la correlación azul, por ejemplo, tiene una correlacion positiva, mientras que la correlación roja es negativa. Entonces, lo lógico sería pensar que los datos
+									provienen de dos distribuciones diferentes. Sin embargo, si hacemos un test de Kolmogorov-Smirnov de 2D, nos da que ambas muestras pueden provenir de la misma 
+									distribución.
+								</aside>
+								<img src="/figs/III-corrs.svg"  class="plain" style="width: 88%">
+							</section>
+							<section>
+								<aside class="notes">
+									En este segundo caso planteamos una situación distinta. Supongamos que tenemos dos experimentos en los que introducimos una perturbación. 
+									Por cada experimento queremos testear que, por ejemplo, un medicamento ha aumentado los niveles de cortisol en sangre. El farmaco A, por la hipótesis, 
+									cumple que ha aumentado los niveles, pero el B no. Entonces A y B actuan diferentemente. Sin embargo, si hacemos un t test entre ambas muestras, el test sale
+									que ambos fármacos no son diferentes.
+								</aside>
+								<img src="/figs/III-ttest.svg"  class="plain" style="width: 88%">
+								<p style="text-align: center; margin-top: -2%">$\tiny{\begin{cases}
+									H_0: \mu_X \le 0 \\
+									H_1: \mu_X > 0
+								\end{cases}}$</p>
+							</section>
+
+							<section style="text-align: left">
+								<aside class="notes">
+
+								</aside>
+								<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+								<span class="fragment"><p>Avoid comparing statistics from different tests at once</p>
+								</span>
+								<span class="fragment"><p>Run tests to compare the two effects (e.g. ANOVA)</p></span>
+							</section>
+						</section>
+
+
+
+						<section>
+							<section data-background="#73AF48">
+								<h1>I</h1>
+								<h2>Absence of [quality] control group</h2>
+							</section>
+
+						</section>
+
+
+
+
+
+
+						<section>
+							<section data-background="#0F8554">
+								<h1>I</h1>
+								<h2>Absence of [quality] control group</h2>
+							</section>
+
+
+						</section>
+
+
+
+
+
+
+
+						<section>
+							<section data-background="#38A6A5">
+								<h1>II</h1>
+								<h2>Absence of [quality] control group</h2>
+							</section>
+
+
+						</section>
+
+
+
+
+
+
+						<section>
+							<section data-background="#1D6996">
+								<h1>I</h1>
+								<h2>Absence of [quality] control group</h2>
+							</section>
+
+						</section>
+
+
+
+
+
+						<section>
+							<section data-background="#5F4690">
+								<h1>I</h1>
+								<h2>Absence of [quality] control group</h2>
+							</section>
+						</section>
+
+
+
+
+
+
+						<section>
+							<section data-background="#94346E">
+								<h1>I</h1>
+								<h2>Absence of [quality] control group</h2>
+							</section>
+
+
+						</section>
+
+
+
+
+
+
+						<section>
+							<section data-background="#6F4070">
+								<h1>I</h1>
+								<h2>Absence of [quality] control group</h2>
+							</section>
+
+
+						</section>
+
+
+
+
+
+
+						<section>
+							<section data-background="#994E95">
+								<h1>I</h1>
+								<h2>Absence of [quality] control group</h2>
+							</section>
+
+
+						</section>
+
+
+					</section>
+				</div>
+			</div>
+
+			<script src="js/reveal.js"></script>
+
+			<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				controls: true,
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/highlight/highlight.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/math/math.js', async: true },
+				{ src: 'plugin/reveal.js-menu/menu.js' }
+				],
+			});
+			Reveal.configure({ slideNumber: true });
+		</script>
+	</body>
+	</html>
