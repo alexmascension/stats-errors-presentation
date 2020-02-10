@@ -104,38 +104,38 @@
 					<div style="margin-left: -2%">
 						<p> <span class="fragment">Test</span></p>
 						<p>
-							<span class="fragment">$\stackrel{\text{weight}}{\Large A}\;\;$</span>
-							<span class="fragment">$\stackrel{\text{height}}{\Large B}\;\;$</span>
-							<span class="fragment">$\stackrel{\text{age}}{\Large C}\;\;$</span>
+							<span class="fragment">$\stackrel{\text{weight}}{\large  A}\;\;$</span>
+							<span class="fragment">$\stackrel{\text{height}}{\large B}\;\;$</span>
+							<span class="fragment">$\stackrel{\text{age}}{\large C}\;\;$</span>
 							<span class="fragment"> $\cdots\;\;$
-								$\stackrel{\text{income}}{\Large X}\;\;$
-								$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
-							$\stackrel{\text{drug X}}{\Large Z}$ </span>
+								$\stackrel{\text{income}}{\large X}\;\;$
+								$\stackrel{\text{schizophrenia}}{\large Y}\;\;$
+							$\stackrel{\text{drug X}}{\large Z}$ </span>
 						</p>
 
 						<span class="fragment">
 							<p style="padding-top: 1%"> Control [ideal]</p>
 							<p>
-								$\stackrel{\text{weight}}{\Large A}\;\;$
-								$\stackrel{\text{height}}{\Large B}\;\;$
-								$\stackrel{\text{age}}{\Large C}\;\;$
+								$\stackrel{\text{weight}}{\large A}\;\;$
+								$\stackrel{\text{height}}{\large B}\;\;$
+								$\stackrel{\text{age}}{\large C}\;\;$
 								$\cdots\;\;$
-								$\stackrel{\text{income}}{\Large X}\;\;$
-								$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
-								$\stackrel{\text{placebo}}{\Large \color{#8c0d04}{Z^*}}$ 
+								$\stackrel{\text{income}}{\large X}\;\;$
+								$\stackrel{\text{schizophrenia}}{\large Y}\;\;$
+								$\stackrel{\text{placebo}}{\large \color{#8c0d04}{Z^*}}$ 
 							</p>
 						</span>
 
 						<span class="fragment">
 							<p style="padding-top: 1%"> Control [real]</p>
 							<p>
-								$\stackrel{\text{weight}}{\Large A}\;\;$
-								$\stackrel{\text{height}}{\Large \color{#8c0d04}{B^*}}\;\;$
-								$\stackrel{\text{age}}{\Large C}\;\;$
+								$\stackrel{\text{weight}}{\large A}\;\;$
+								$\stackrel{\text{height}}{\large \color{#8c0d04}{B^*}}\;\;$
+								$\stackrel{\text{age}}{\large C}\;\;$
 								$\cdots\;\;$
-								$\stackrel{\text{income}}{\Large \color{#8c0d04}{X^*}}\;\;$
-								$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
-								$\stackrel{\text{placebo}}{\Large \color{#8c0d04}{Z^*}}$ 
+								$\stackrel{\text{income}}{\large \color{#8c0d04}{X^*}}\;\;$
+								$\stackrel{\text{schizophrenia}}{\large Y}\;\;$
+								$\stackrel{\text{placebo}}{\large \color{#8c0d04}{Z^*}}$ 
 							</p>
 						</span>
 					</div>
@@ -153,6 +153,8 @@
 						<span class="fragment"><li>Experimenters are not blinded</li></span>
 						<span class="fragment"><li>Control & exp. groups sampled at different times</li></span>
 						<span class="fragment"><li>$N_{\text{control}} \neq N_{\text{exp}}$</li></span>
+						<span class="fragment"><li>All biological <b>heterogeneity</b> is <b>not considered</b> in the experimental / control group.</li></span>
+
 					</ul>
 				</section>
 
@@ -564,22 +566,25 @@
 						<aside class="notes">
 
 						</aside>
-						<h2>Solution (Assuming normality)<span class="fragment" style="color: #CC503E">[hard?]</span></h2>
+						<h2>Solution (Assuming normality)<span class="fragment" style="color: #CC503E"> [hard?]</span></h2>
 						<span class="fragment"><p>Calculate sample size. If we expect $|\hat{\mu} - \mu| = D$ then, with $\alpha=0.05$ (one tail): </p>
-							<p>$\small{z_{0.05} = 1.65 \le \frac{\mu - \hat{\mu}}{\hat{\sigma}/\sqrt{n}} = \frac{D \sqrt{n}}{\hat{\sigma}} \iff n \ge  \left(\frac{z_{0.05}\hat{\sigma}}{D}\right)^2 \simeq  \color{#cc503e}{2.73\left( \frac{\hat{\sigma}}{D} \right)^2}}$
-							</p></span>
-							<span class="fragment"><p>We barely never have that info.</p></span>
+							<p style="text-align: center"> $\small{z_{0.05} = 1.65 \le \frac{\mu - \hat{\mu}}{\hat{\sigma}/\sqrt{n}} = \frac{D \sqrt{n}}{\hat{\sigma}} \iff n \ge  
+							\left(\frac{z_{0.05}\hat{\sigma}}{D}\right)^2}$</p>
+							<p style="text-align: center">$\color{#cc503e}{2.73\left( \frac{\hat{\sigma}}{D} \right)^2}$</p>
+						</span>
+						
+							<span class="fragment"><p>We barely ever have that info.</p></span>
 						</section>
 
 						<section style="text-align: left">
 							<aside class="notes">
 
 							</aside>
-							<h2>Solution II<span class="fragment" style="color: #73af48">[easy]</span></h2>
+							<h2>Solution II<span class="fragment" style="color: #73af48"> [easy]</span></h2>
 							<span class="fragment"><p>Apply a lower $\alpha$: 0.01 or 0.005: is it better a FP or a FN?</p>
 							</span>
 							<span class="fragment"><p>Include effect sizes (Cohen's d, Hedges' g, <b>odds ratio</b>, <b>test statistics</b>).</p></span>
-							<span class="fragment"><p>95% Confidence interval (parametric), 2 and 98 percentiles of Walsh averages (non-parametric).</p>
+							<span class="fragment"><p>95% Confidence Interval (parametric), 2 and 98 percentiles of Walsh averages (non-parametric).</p>
 							</span>
 						</section>
 
@@ -632,13 +637,13 @@
 							<img src="figs/VI-correlation-pearson.svg" text-align="center" class="plain" width="100%">	
 						</section>
 
-						<section style="text-align: left" data-transition="none-out">
+						<section style="text-align: left">
 							<h3>Solution: Spearmann correlation</h3>
 							<span class="fragment"><p>Spearman correlation is calculated on the <b>rank</b> of the variables, not on their values.</p></span>
 							<span class="fragment"><p>More robust to <b>outliers</b>, <b>non-linearity</b> and <b>non-normality</b>.</p></span>	
 						</section>
 
-						<section style="text-align: left" data-transition="none-in none-out">
+						<section style="text-align: left">
 							<h3>Solution: Spearmann correlation</h3>
 							<img src="figs/VI-correlation-spearman.svg" text-align="center" class="plain" width="100%">	
 						</section>
@@ -654,9 +659,9 @@
 
 							</aside>
 							<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
-							<span class="fragment"><p>Assert normality and linearity</p>
+							<span class="fragment"><p>Assert normality and linearity. If not, try Spearmann correlation</p>
 							</span>
-							<span class="fragment"><p>If not, try Spearmann correlation</p></span>
+							<span class="fragment"><p>Assert data is monomodal, or cannot be divided into categories.</p></span>
 							<span class="fragment"><p>Outliers: check meaningfulness, else Spearmann</p></span>
 						</section>
 
