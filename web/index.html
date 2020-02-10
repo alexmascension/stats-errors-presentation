@@ -31,7 +31,7 @@
 			<section id="titulo-y-paper">
 				<section style="width: 100%">
 					<h2 style="text-align: left; color: #8c0d04">
-						Common stats mistakes for scientists
+						Common stats mistakes from (and for) scientists
 					</h2>
 					<hr>
 					<table style="width:100%; padding-left: 0%">
@@ -70,8 +70,17 @@
 			</section>
 			
 
+			<section>
+				<section data-background="#94346E">
+					<h1>.</h1>
+					<h2>101 STATS</h2>
+				</section>
 
-
+				<section>
+					<h3>101 Stats: median and Median Absolute Deviation (MAD)</h3>
+					<img src="figs/median-MAD.png" class='plain' style="width: 35%">
+				</section>
+			</section>
 
 			<section>
 				<section data-background="#CC503E">
@@ -92,29 +101,33 @@
 						Sin embargo, es probable que a la hora de diseñar el experimento no consideremos otras variables.
 					</aside>
 					<!-- <h3 style="padding-bottom: 5%">The problem</h3> -->
-					<p> <span class="fragment">Test</span></p>
-					<p>
-						<span class="fragment">$\stackrel{\text{weight}}{\Large A}\;\;$</span>
-						<span class="fragment">$\stackrel{\text{height}}{\Large B}\;\;$</span>
-						<span class="fragment">$\stackrel{\text{age}}{\Large C}\;\;$</span>
-						<span class="fragment"> $\cdots\;\;$
-							$\stackrel{\text{income}}{\Large X}\;\;$
-							$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
-						$\stackrel{\text{drug X}}{\Large Z}$ </span>
-					</p>
-
-					<span class="fragment"><p style="padding-top: 1%"> Control [ideal]</p>
+					<div style="margin-left: -2%">
+						<p> <span class="fragment">Test</span></p>
 						<p>
-							$\stackrel{\text{weight}}{\Large A}\;\;$
-							$\stackrel{\text{height}}{\Large B}\;\;$
-							$\stackrel{\text{age}}{\Large C}\;\;$
-							$\cdots\;\;$
-							$\stackrel{\text{income}}{\Large X}\;\;$
-							$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
-							$\stackrel{\text{placebo}}{\Large \color{#8c0d04}{Z^*}}$ 
-						</p></span>
+							<span class="fragment">$\stackrel{\text{weight}}{\Large A}\;\;$</span>
+							<span class="fragment">$\stackrel{\text{height}}{\Large B}\;\;$</span>
+							<span class="fragment">$\stackrel{\text{age}}{\Large C}\;\;$</span>
+							<span class="fragment"> $\cdots\;\;$
+								$\stackrel{\text{income}}{\Large X}\;\;$
+								$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
+							$\stackrel{\text{drug X}}{\Large Z}$ </span>
+						</p>
 
-						<span class="fragment"><p style="padding-top: 1%"> Control [real]</p>
+						<span class="fragment">
+							<p style="padding-top: 1%"> Control [ideal]</p>
+							<p>
+								$\stackrel{\text{weight}}{\Large A}\;\;$
+								$\stackrel{\text{height}}{\Large B}\;\;$
+								$\stackrel{\text{age}}{\Large C}\;\;$
+								$\cdots\;\;$
+								$\stackrel{\text{income}}{\Large X}\;\;$
+								$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
+								$\stackrel{\text{placebo}}{\Large \color{#8c0d04}{Z^*}}$ 
+							</p>
+						</span>
+
+						<span class="fragment">
+							<p style="padding-top: 1%"> Control [real]</p>
 							<p>
 								$\stackrel{\text{weight}}{\Large A}\;\;$
 								$\stackrel{\text{height}}{\Large \color{#8c0d04}{B^*}}\;\;$
@@ -123,376 +136,533 @@
 								$\stackrel{\text{income}}{\Large \color{#8c0d04}{X^*}}\;\;$
 								$\stackrel{\text{schizophrenia}}{\Large Y}\;\;$
 								$\stackrel{\text{placebo}}{\Large \color{#8c0d04}{Z^*}}$ 
-							</p></span>
-							<aside class="notes">
+							</p>
+						</span>
+					</div>
 
-							</aside>
-						</section>
 
-						<section style="text-align: left">
-							<h2>Common problems</h2>
-							<ul>
-								<span class="fragment"><li>Experimenters are not blinded</li></span>
-								<span class="fragment"><li>Control & exp. groups sampled at different times</li></span>
-								<span class="fragment"><li>$N_{\text{control}} \neq N_{\text{exp}}$</li></span>
-							</ul>
-						</section>
 
-						<section style="text-align: left" data-background="/figs/dummy.jpg" data-background-opacity=0.2>
-							<aside class="notes">
-								Un ejemplo clásico fue el diseño de los tests de seguridad de vehículos. Los coches se diseñan
-								de modo que se minimiza el riesgo para los dummies. Pero los dummies son de composicion de hombre, luego
-								las mujeres sufren más daños en el mismo tipo de accidente, y más muertes.
-							</aside>
+					<aside class="notes">
 
-							<h3>Some examples (I)</h3>
-							<p>Dummies are designed as average <b>male</b> (based on height/weight) </p>
-							<blockquote>
-								&ldquo;The fatality risk of a female driver is an estimated 17.0 ± 1.5 percent higher than for a male of the same age, given similar physical insults.&rdquo;
-								<a href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/811766"> NHTSA </a>
-							</blockquote> 
-						</section>
+					</aside>
+				</section>
 
-						<section style="text-align: left" data-background="/figs/ambien.jpg" data-background-opacity=0.15>
-							<aside class="notes">
-								En este caso hablaremos de Ambien, un sedante. El ensayo clinico desarrollado para ambien solo fue testado en hombres. 
-								Varones caucásicos, 30 años, 70 kg. Resulta que las mujeres metabolizan el fármaco más lento. Como resultado, la FDA 
-								ha aconsejado a reducir a la mitad la dosis para mujeres.
-							</aside>
+				<section style="text-align: left">
+					<h2>Common problems</h2>
+					<ul>
+						<span class="fragment"><li>Experimenters are not blinded</li></span>
+						<span class="fragment"><li>Control & exp. groups sampled at different times</li></span>
+						<span class="fragment"><li>$N_{\text{control}} \neq N_{\text{exp}}$</li></span>
+					</ul>
+				</section>
 
-							<h3>Some examples (II)</h3>
-							<span class="fragment"><p>Ambien (zolpidem) is a sedative.</p></span> 
-							<span class="fragment"><p>Clinical trials were done in caucasic men, age 30, weight $\sim$ 70 kg.</p></span> 
-							<span class="fragment"><p>Women metabolize ambien more slowly $\rightarrow$ women driving to work still groggy.</p></span> 
-							<span class="fragment"><p>FDA recommended halving the intake (<a href="https://www.nytimes.com/2013/01/11/health/fda-requires-cuts-to-dosages-of-ambien-and-other-sleep-drugs.html">source</a>).</p></span> 
-						</section>
+				<section style="text-align: left" data-background="figs/dummy.jpg" data-background-opacity=0.2>
+					<aside class="notes">
+						Un ejemplo clásico fue el diseño de los tests de seguridad de vehículos. Los coches se diseñan
+						de modo que se minimiza el riesgo para los dummies. Pero los dummies son de composicion de hombre, luego
+						las mujeres sufren más daños en el mismo tipo de accidente, y más muertes.
+					</aside>
 
-						<section style="text-align: left">
-							<h2>Solution <span class="fragment" style="color: #CC503E">[hard]</span></h2>
-							<span class="fragment"><p>Be aware of as many variables as possible</p>
-							</span>
-							<span class="fragment"><p>Present conclusions as tentative</p></span>
-						</section>
+					<h3>Some examples (I)</h3>
+					<p>Dummies are designed as average <b>male</b> (based on height/weight) </p>
+					<blockquote>
+						&ldquo;The fatality risk of a female driver is an estimated 17.0 ± 1.5 percent higher than for a male of the same age, given similar physical insults.&rdquo;
+						<a href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/811766"> NHTSA </a>
+					</blockquote> 
+				</section>
+
+				<section style="text-align: left" data-background="figs/ambien.jpg" data-background-opacity=0.15>
+					<aside class="notes">
+						En este caso hablaremos de Ambien, un sedante. El ensayo clinico desarrollado para ambien solo fue testado en hombres. 
+						Varones caucásicos, 30 años, 70 kg. Resulta que las mujeres metabolizan el fármaco más lento. Como resultado, la FDA 
+						ha aconsejado a reducir a la mitad la dosis para mujeres.
+					</aside>
+
+					<h3>Some examples (II)</h3>
+					<span class="fragment"><p>Ambien (zolpidem) is a sedative.</p></span> 
+					<span class="fragment"><p>Clinical trials were done in caucasic men, age 30, weight $\sim$ 70 kg.</p></span> 
+					<span class="fragment"><p>Women metabolize ambien more slowly $\rightarrow$ women driving to work still groggy.</p></span> 
+					<span class="fragment"><p>FDA recommended halving the intake (<a href="https://www.nytimes.com/2013/01/11/health/fda-requires-cuts-to-dosages-of-ambien-and-other-sleep-drugs.html">source</a>).</p></span> 
+				</section>
+
+				<section style="text-align: left">
+					<h2>Solution <span class="fragment" style="color: #CC503E">[hard]</span></h2>
+					<span class="fragment"><p>Be aware of as many variables as possible</p>
+					</span>
+					<span class="fragment"><p>Present conclusions as tentative</p></span>
+				</section>
+			</section>
+
+
+
+
+
+			<section>
+				<section data-background="#EDAD08">
+					<aside class="notes">
+						Como concepto básico de estadística tenemos los grados de libertad. Es hablo de los grados de libertad por las equivocaciones típicas que hay con ellos, además de que 
+						otros fallos típicos también están asociados a los grados de libertad.
+					</aside>
+					<h1>II</h1>
+					<h2>Inflating the degrees of freedom</h2>
+				</section>
+
+				<section style="text-align: left">
+					<aside class="notes">
+						DEFINIR GRADO DE LIBERTAD // Por ejemplo, suponemos que queremos estimar la media de la altura de una población y tenemos 10 personas.
+						Los grados de libertad son 9 porque la altura de la décima persona puede sacarse en base a la altura de las 9 personas y la media.
+					</aside>
+					<h2>What is a degree of freedom?</h2>
+					<span class="fragment"><p>N of <b>independent</b> pieces of information to calculate the estimate</p>
+					</span>
+					<ul>
+						<span class="fragment"><li>DoF 1 sample: $N-1$</li></span>
+						<span class="fragment"><li>DoF 2 samples: $N_1 + N_2 - 2$</li></span>
+					</ul>
+				</section>	
+
+				<section style="text-align: left">
+					<aside class="notes">
+						Vamos a simular datos normales. En este caso, van a tener media 0.5 y desviación 1. Queremos ver si la media de la población 
+						es mayor que 0.
+					</aside>
+
+					<h2>Why are DoF important?  </h2><h4>(1 sample)</h4>
+					<span class="fragment">
+						We are going to simulate normal data: $X \sim N(\mu_X, \sigma_X)$.
+						We want to test whether $\mu_X > 0$. </span>
+						<span class="fragment"> <p style="text-align: center; padding-top: 5%">$\begin{cases}
+							H_0: \hat{\mu}_X \le 0 \\
+							H_1: \hat{\mu}_X > 0
+
+						\end{cases}$</p></span>
+
+					</section>	
+
+					<section >
+						<aside class="notes">
+							Suponemos dos casos. En el caso de la izquierda tenemos 20 puntos, luego los grados de libertad son 19. En el 
+							caso de la derecha tenemos que hemos duplicado los puntos para tener un total de 40, luego los grados de libertad
+							son 39. En este caso, por ejemplo, la distribución de la izquierda no aseguramos que tenga media mayor que 0, pero en 
+							la de la derecha sí.
+						</aside>
+						<h2 style="text-align: left">Why are DoF important?  </h2><h4 style="text-align: left">(1 sample)</h4>
+						<img src="figs/II-pvalues-20VS40.svg" text-align="center" class="plain" width="65%">						
+					</section>	
+
+					<section >
+						<aside class="notes">
+							Ahora extendemos el caso a varias N. Vamos a suponer que simulamos 1000 veces una población con media 0, 0.5, y 1. 
+							El contraste de hipótesis anterior se cumple en 0.05 para mu = 0.5 en N = 30. Entonces si tomamos duplicamos el 
+							DoF, con hasta N = 30 sufrimos ese fenómeno, y el resultado del contraste sería falso.
+						</aside>
+						<h2 style="text-align: left">Why are DoF important?  </h2><h4 style="text-align: left">(1 sample)</h4>
+						<img src="figs/II-pvalues-N.svg" text-align="center" class="plain" width="65%">								
+					</section>	
+
+					<section >
+						<aside class="notes">
+							Vamos a practicar esto con dos ejemplos tipicos que suelen fallarse.
+						</aside>
+						<h2 style="text-align: left">Extending DoF to 2 samples.</h2>
+						<span class="fragment">
+							<img src="figs/II-DROGA+PLACEBO.svg" text-align="center" class="plain" width="100%">	
+						</span>
+
+
+						<div class="row">
+							<div class="column"><span class="fragment"><p>What is the DoF?</p></span></div>
+							<div class="column"><span class="fragment"><p>20 - 2 = 18</p>
+								<p>$\tiny{\begin{cases}
+									H_0: \mu_A = \mu_B\\
+									H_1: \mu_A \neq \mu_B
+								\end{cases}}$</p></span>
+							</div>
+						</div> 
+					</section>	
+
+
+					<section >
+						<aside class="notes">
+							Vamos a practicar esto con dos ejemplos tipicos que suelen fallarse. En este primer caso tenemos 10 personas a las que se les da un placebo
+							y 10 a las que se les da una droga. Cual es la $N$ 20 - 2 = 18
+						</aside>
+						<h2 style="text-align: left">Extending DoF to 2 samples.</h2>
+						<span class="fragment">
+							<img src="figs/II-DROGA+TIEMPO.svg" text-align="center" class="plain" width="100%">	
+						</span>
+
+
+						<div class="row">
+							<div class="column"><span class="fragment"><p>What is the DoF?</p></span></div>
+							<div class="column"><span class="fragment"><p>10 - 1 = 9</p>
+								<p>$\tiny{D = x_t - x_0\;\;\begin{cases}
+									H_0: \mu_D = 0\\
+									H_1: \mu_D \neq 0
+								\end{cases}}$</p></span>
+							</div>
+						</div> 
+					</section>	
+
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+						<span class="fragment"><p>Adapt to DoF and rerun the test.</p></span>
+						<span class="fragment"><p>If results become not significant, present them as tentative.</p></span>
 					</section>
 
+				</section>
 
-
-
+				<section>
+					<section data-background="#E17C05">
+						<aside class="notes">
+							En el segundo caso tenemos que a 10 personas se les mide la variable, se les hace tomar un medicamento, y luego se les mide la variable.
+							Entonces N = 9.
+						</aside>
+						<h1>III</h1>
+						<h2>Interpret <div style="color: #FFFFFF">comparisons</div> between groups <div style="color: #FFFFFF">without comparing</div> them</h2>
+					</section>
 
 					<section>
-						<section data-background="#EDAD08">
-							<aside class="notes">
-								Como concepto básico de estadística tenemos los grados de libertad. Es hablo de los grados de libertad por las equivocaciones típicas que hay con ellos, además de que 
-								otros fallos típicos también están asociados a los grados de libertad.
-							</aside>
-							<h1>II</h1>
-							<h2>Inflating the degrees of freedom</h2>
-						</section>
+						<aside class="notes">
+							En este primer caso, imaginemos que hacemos dos experimentos y nos salen las dos correlaciones. EXPLICAR P y R!!!! Si las analizamos por separado, tenemos que
+							la correlación azul, por ejemplo, tiene una correlacion positiva, mientras que la correlación roja es negativa. Entonces, lo lógico sería pensar que los datos
+							provienen de dos distribuciones diferentes. Sin embargo, si hacemos un test de Kolmogorov-Smirnov de 2D, nos da que ambas muestras pueden provenir de la misma 
+							distribución.
+						</aside>
+						<img src="figs/III-corrs.svg"  class="plain" style="width: 88%">
+					</section>
+					<section>
+						<aside class="notes">
+							En este segundo caso planteamos una situación distinta. Supongamos que tenemos dos experimentos en los que introducimos una perturbación. 
+							Por cada experimento queremos testear que, por ejemplo, un medicamento ha aumentado los niveles de cortisol en sangre. El farmaco A, por la hipótesis, 
+							cumple que ha aumentado los niveles, pero el B no. Entonces A y B actuan diferentemente. Sin embargo, si hacemos un t test entre ambas muestras, el test sale
+							que ambos fármacos no son diferentes.
+						</aside>
+						<img src="figs/III-ttest.svg"  class="plain" style="width: 88%">
+						<p style="text-align: center; margin-top: -2%">$\tiny{\begin{cases}
+							H_0: \mu_X \le 0 \\
+							H_1: \mu_X > 0
+						\end{cases}}$</p>
+					</section>
 
-						<section style="text-align: left">
-							<aside class="notes">
-								DEFINIR GRADO DE LIBERTAD // Por ejemplo, suponemos que queremos estimar la media de la altura de una población y tenemos 10 personas.
-								Los grados de libertad son 9 porque la altura de la décima persona puede sacarse en base a la altura de las 9 personas y la media.
-							</aside>
-							<h2>What is a degree of freedom?</h2>
-							<span class="fragment"><p>N of <b>independent</b> pieces of information to calculate the estimate</p>
-							</span>
-							<ul>
-								<span class="fragment"><li>DoF 1 sample: $N-1$</li></span>
-								<span class="fragment"><li>DoF 2 samples: $N_1 + N_2 - 2$</li></span>
-							</ul>
-						</section>	
+					<section style="text-align: left">
+						<aside class="notes">
 
-						<section style="text-align: left">
-							<aside class="notes">
-								Vamos a simular datos normales. En este caso, van a tener media 0.5 y desviación 1. Queremos ver si la media de la población 
-								es mayor que 0.
-							</aside>
-
-							<h2>Why are DoF important?  </h2><h4>(1 sample)</h4>
-							<span class="fragment">
-								We are going to simulate normal data: $X \sim N(\mu_X, \sigma_X)$.
-								We want to test whether $\mu_X > 0$. </span>
-								<span class="fragment"> <p style="text-align: center; padding-top: 5%">$\begin{cases}
-									H_0: \hat{\mu}_X \le 0 \\
-									H_1: \hat{\mu}_X > 0
-
-								\end{cases}$</p></span>
-
-							</section>	
-
-							<section >
-								<aside class="notes">
-									Suponemos dos casos. En el caso de la izquierda tenemos 20 puntos, luego los grados de libertad son 19. En el 
-									caso de la derecha tenemos que hemos duplicado los puntos para tener un total de 40, luego los grados de libertad
-									son 39. En este caso, por ejemplo, la distribución de la izquierda no aseguramos que tenga media mayor que 0, pero en 
-									la de la derecha sí.
-								</aside>
-								<h2 style="text-align: left">Why are DoF important?  </h2><h4 style="text-align: left">(1 sample)</h4>
-								<img src="/figs/II-pvalues-20VS40.svg" text-align="center" class="plain" width="65%">						
-							</section>	
-
-							<section >
-								<aside class="notes">
-									Ahora extendemos el caso a varias N. Vamos a suponer que simulamos 1000 veces una población con media 0, 0.5, y 1. 
-									El contraste de hipótesis anterior se cumple en 0.05 para mu = 0.5 en N = 30. Entonces si tomamos duplicamos el 
-									DoF, con hasta N = 30 sufrimos ese fenómeno, y el resultado del contraste sería falso.
-								</aside>
-								<h2 style="text-align: left">Why are DoF important?  </h2><h4 style="text-align: left">(1 sample)</h4>
-								<img src="/figs/II-pvalues-N.svg" text-align="center" class="plain" width="65%">								
-							</section>	
-
-							<section >
-								<aside class="notes">
-									Vamos a practicar esto con dos ejemplos tipicos que suelen fallarse.
-								</aside>
-								<h2 style="text-align: left">Extending DoF to 2 samples.</h2>
-								<span class="fragment">
-									<img src="/figs/II-DROGA+PLACEBO.svg" text-align="center" class="plain" width="100%">	
-								</span>
-
-
-								<div class="row">
-									<div class="column"><span class="fragment"><p>What is the DoF?</p></span></div>
-									<div class="column"><span class="fragment"><p>20 - 2 = 18</p>
-										<p>$\tiny{\begin{cases}
-											H_0: \mu_A = \mu_B\\
-											H_1: \mu_A \neq \mu_B
-										\end{cases}}$</p></span>
-									</div>
-								</div> 
-							</section>	
-
-
-							<section >
-								<aside class="notes">
-									Vamos a practicar esto con dos ejemplos tipicos que suelen fallarse. En este primer caso tenemos 10 personas a las que se les da un placebo
-									y 10 a las que se les da una droga. Cual es la $N$ 20 - 2 = 18
-								</aside>
-								<h2 style="text-align: left">Extending DoF to 2 samples.</h2>
-								<span class="fragment">
-									<img src="/figs/II-DROGA+TIEMPO.svg" text-align="center" class="plain" width="100%">	
-								</span>
-
-
-								<div class="row">
-									<div class="column"><span class="fragment"><p>What is the DoF?</p></span></div>
-									<div class="column"><span class="fragment"><p>10 - 1 = 9</p>
-										<p>$\tiny{D = x_t - x_0\;\;\begin{cases}
-											H_0: \mu_D = 0\\
-											H_1: \mu_D \neq 0
-										\end{cases}}$</p></span>
-									</div>
-								</div> 
-							</section>	
-
-
-							<section style="text-align: left">
-								<aside class="notes">
-
-								</aside>
-								<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
-								<span class="fragment"><p>Adapt to DoF and rerun the test.</p></span>
-								<span class="fragment"><p>If results become not significant, present them as tentative.</p></span>
-							</section>
-
-						</section>
-
-						<section>
-							<section data-background="#E17C05">
-								<aside class="notes">
-									En el segundo caso tenemos que a 10 personas se les mide la variable, se les hace tomar un medicamento, y luego se les mide la variable.
-									Entonces N = 9.
-								</aside>
-								<h1>III</h1>
-								<h2>Interpret <div style="color: #FFFFFF">comparisons</div> between groups <div style="color: #FFFFFF">without comparing</div> them</h2>
-							</section>
-
-							<section>
-								<aside class="notes">
-									En este primer caso, imaginemos que hacemos dos experimentos y nos salen las dos correlaciones. EXPLICAR P y R!!!! Si las analizamos por separado, tenemos que
-									la correlación azul, por ejemplo, tiene una correlacion positiva, mientras que la correlación roja es negativa. Entonces, lo lógico sería pensar que los datos
-									provienen de dos distribuciones diferentes. Sin embargo, si hacemos un test de Kolmogorov-Smirnov de 2D, nos da que ambas muestras pueden provenir de la misma 
-									distribución.
-								</aside>
-								<img src="/figs/III-corrs.svg"  class="plain" style="width: 88%">
-							</section>
-							<section>
-								<aside class="notes">
-									En este segundo caso planteamos una situación distinta. Supongamos que tenemos dos experimentos en los que introducimos una perturbación. 
-									Por cada experimento queremos testear que, por ejemplo, un medicamento ha aumentado los niveles de cortisol en sangre. El farmaco A, por la hipótesis, 
-									cumple que ha aumentado los niveles, pero el B no. Entonces A y B actuan diferentemente. Sin embargo, si hacemos un t test entre ambas muestras, el test sale
-									que ambos fármacos no son diferentes.
-								</aside>
-								<img src="/figs/III-ttest.svg"  class="plain" style="width: 88%">
-								<p style="text-align: center; margin-top: -2%">$\tiny{\begin{cases}
-									H_0: \mu_X \le 0 \\
-									H_1: \mu_X > 0
-								\end{cases}}$</p>
-							</section>
-
-							<section style="text-align: left">
-								<aside class="notes">
-
-								</aside>
-								<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
-								<span class="fragment"><p>Avoid comparing statistics from different tests at once</p>
-								</span>
-								<span class="fragment"><p>Run tests to compare the two effects (e.g. ANOVA)</p></span>
-							</section>
-						</section>
+						</aside>
+						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+						<span class="fragment"><p>Avoid comparing statistics from different tests at once</p>
+						</span>
+						<span class="fragment"><p>Run tests to compare the two effects (e.g. ANOVA)</p></span>
+					</section>
+				</section>
 
 
 
-						<section>
-							<section data-background="#73AF48">
-								<aside class="notes">
-									Una correlación es espúrea cuando a la hora de realizar una correlación, una variable que no debería correlar con 
-									otra, por la razón que sea, lo hace. Es decir, sería el equivalente a un falso positivo de correlaciones.
-								</aside>
-								<h1>IV</h1>
-								<h2>Spurious correlations</h2>
-							</section>
-
-							<section style="text-align: left">
-								<aside class="notes">
-									La correlación más común que se realiza en ciencia es la correlación de Pearson. Es una correlación útil, pero
-									tiene una serie de asunciones que no suelen respetarse. EXPLICAR CADA OPCIÓN
-								</aside>
-								<h2>Pearson correlation</h2>
-								<p>Really useful for common datasets. <span class="fragment">But it has some assumptions. The most troublesome ones are:</span></p>
-								<ul>
-									<span class="fragment"><li>No outliers</li></span>
-									<span class="fragment"><li>Normality</li></span>
-									<span class="fragment"><li>Continuity</li></span>
-									<span class="fragment"><li>Linearity</li></span>
-									<span class="fragment"><li>Random variables come from same distribution</li></span>
-								</ul>
-								<span class="fragment"><p>We will put examples of spurious correlations and their viable solutions.</p></span>
-							</section>
-
-
-							<section style="text-align: left">
-								<h2>No outliers [Problem]</h2>
-								<img src="/figs/IV-correlation-pearson.svg" text-align="center" class="plain" width="100%">	
-							</section>
-
-							<section style="text-align: left" data-transition="none-out">
-								<h3>Solution: Spearmann correlation</h3>
-								<span class="fragment"><p>Spearman correlation is calculated on the <b>rank</b> of the variables, not on their values.</p></span>
-								<span class="fragment"><p>More robust to <b>outliers</b>, <b>non-linearity</b> and <b>non-normality</b>.</p></span>	
-							</section>
-
-							<section style="text-align: left" data-transition="none-in none-out">
-								<h3>Solution: Spearmann correlation</h3>
-								<img src="/figs/IV-correlation-spearman.svg" text-align="center" class="plain" width="100%">	
-							</section>
-
-							<section style="text-align: left">
-								<h3>Random variables from different distributions</h3>
-								<img src="/figs/IV-correlation-blobs.svg" text-align="center" class="plain" width="100%">	
-							</section>
-
-
-							<section style="text-align: left">
-								<aside class="notes">
-
-								</aside>
-								<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
-								<span class="fragment"><p>Assert normality and linearity</p>
-								</span>
-								<span class="fragment"><p>If not, try Spearmann correlation</p></span>
-								<span class="fragment"><p>Outliers: check meaningfulness, else Spearmann</p></span>
-							</section>
-
-						</section>
-
-
-						<section>
-							<section data-background="#0F8554">
-								<h1>V</h1>
-								<h2>Data is not normal</h2>
-							</section>
-
-							<section style="text-align: left">
-								<h3>Many biological variables are not normal!</h3>
-								<img src="/figs/portada-nonnormal.png" class='plain' style="margin-top: -2%; margin-bottom: -2%">
-								<p>231 curated papers with non-normal data: Gamma, Negative Binomial, Binomial, etc.</p>
-							</section>
-
-							<section style="text-align: left">
-								<p>In transcriptomics, most of the data is skewed too! </p>
-							</section>
-
-							<section style="text-align: left">
-								<h2>Anscombe's quartet</h2>
-								<p>Datasets from different distributions can share similar descriptors!</p>
-								<span class="fragment"><img src="/figs/anscombe.png" class='plain' ></span>
-							</section>
-
-							<section style="text-align: left">
-								<h2>Anscombe's quartet</h2>
-								<p>Datasets from different distributions can share similar descriptors!</p>
-								<table style="width:35%; font-size: 25px">
-									<tr><td><span style="color: #73AF48">$\mu_X$: 9</span></td></tr>
-									<tr><td><span style="color: #73AF48">$\sigma_X$: 11</span></td></tr>
-									<tr><td><span style="color: #73AF48">$\mu_Y$: 7.5</span></td></tr>
-									<tr><td><span style="color: #73AF48">$\sigma_Y$: 4.125</span></td></tr>
-									<tr><td><span style="color: #73AF48">Correlation $X,Y$: 0.816</span></td></tr>
-									<tr><td><span style="color: #73AF48">Linear regression: $y = 3 + 0.5x$</span></td></tr>
-									<tr><td><span style="color: #CC503E">Median</span></td></tr>
-									<tr><td><span style="color: #CC503E">Median Absolute Deviation</span></td></tr>
-								</table> 
-							</section>
-
-							<section style="text-align: left">
-								<h2>Datasaurus!</h2>
-								<span class="fragment"><img src="/figs/datasaurus.png" class='plain' style="width: 75%; text-align: center"></span>
-							</section>
-
-							<section style="text-align: left">
-								<h3>Therefore...</h3>
-								<span class="fragment"><p>beware of the mean, variance, correlation of datasets!</p></span>
-							</section>
-
-							<section style="text-align: left">
-								<aside class="notes">
-
-								</aside>
-								<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
-								<span class="fragment"><p>Assert normality of data: Shapiro-Wilk test <span style="color: #CC503E">(!!!)</span></p>
-							</span>
-							<span class="fragment"><p>If not, use <b>non-parametric</b> statistics</p>
-								<ul>
-									<li>t-test (1 var) $\rightarrow$ Wilcoxon rank test</li>
-									<li>t-test (2 var) $\rightarrow$ Mann-Whitney U test</li>
-
-								</ul>
-							</span>
-							<span class="fragment"><p>Use <b>robust</b> estimators</p>
-								<ul>
-									<li>Mean $\rightarrow$ median</li>
-									<li>Variance (2 var) $\rightarrow$ Mean Absolute Deviation</li>
-
-								</ul>
-							</span>
-						</section>
+				<section>
+					<section data-background="#73AF48">
+						<h1>IV</h1>
+						<h2>Data is not normal</h2>
 					</section>
 
 
 
+					<section style="text-align: left">
+						<h3>Many biological variables are not normal!</h3>
+						<img src="figs/portada-nonnormal.png" class='plain' style="margin-top: -2%; margin-bottom: -2%">
+						<p>231 curated papers with non-normal data: Gamma, Negative Binomial, Binomial, etc.</p>
+					</section>
+
+					<section style="text-align: left">
+						<p>In transcriptomics, most of the data is skewed too! </p>
+					</section>
+
+					<section style="text-align: left">
+						<h2>Anscombe's quartet</h2>
+						<p>Datasets from different distributions can share similar descriptors!</p>
+						<span class="fragment"><img src="figs/anscombe.png" class='plain' ></span>
+					</section>
+
+					<section style="text-align: left">
+						<h2>Anscombe's quartet</h2>
+						<p>Datasets from different distributions can share similar descriptors!</p>
+						<table style="width:35%; font-size: 25px">
+							<tr><td><span style="color: #73AF48">$\mu_X$: 9</span></td></tr>
+							<tr><td><span style="color: #73AF48">$\sigma_X$: 11</span></td></tr>
+							<tr><td><span style="color: #73AF48">$\mu_Y$: 7.5</span></td></tr>
+							<tr><td><span style="color: #73AF48">$\sigma_Y$: 4.125</span></td></tr>
+							<tr><td><span style="color: #73AF48">Correlation $X,Y$: 0.816</span></td></tr>
+							<tr><td><span style="color: #73AF48">Linear regression: $y = 3 + 0.5x$</span></td></tr>
+							<tr><td><span style="color: #CC503E">Median</span></td></tr>
+							<tr><td><span style="color: #CC503E">Median Absolute Deviation</span></td></tr>
+						</table> 
+					</section>
+
+					<section style="text-align: left">
+						<h2>Datasaurus!</h2>
+						<span class="fragment"><img src="figs/datasaurus.png" class='plain' style="width: 75%; text-align: center"></span>
+					</section>
+
+					<section style="text-align: left">
+						<h3>Therefore...</h3>
+						<span class="fragment"><p>beware of the mean, variance, correlation of datasets!</p></span>
+					</section>
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+						<span class="fragment">
+							<p>Assert normality of data: Shapiro-Wilk test <span style="color: #CC503E">(!!!)</span></p>
+						</span>
+						<span class="fragment"><p>If not, use <b>non-parametric</b> statistics</p>
+							<ul>
+								<li>t-test (1 var) $\rightarrow$ Wilcoxon rank test</li>
+								<li>t-test (2 var) $\rightarrow$ Mann-Whitney U test</li>
+
+							</ul>
+						</span>
+						<span class="fragment"><p>Use <b>robust</b> estimators</p>
+							<ul>
+								<li>Mean $\rightarrow$ median</li>
+								<li>Variance (2 var) $\rightarrow$ Mean Absolute Deviation</li>
+							</ul>
+						</span>
+					</section>
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h2>Are robust estimators better?</h2>
+						<span class="fragment"><p>If the data is not normal or has outliers, <b>yes</b>!</p>
+							<p>Let's see some examples.</p>
+						</span>
+					</section>
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h3>Robust estimators for non-normal distributions</h3>
+						<img src="figs/IV-mean-M-dists.svg" class="plain">
+					</section>
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h3>Robust estimators are better with outliers</h3>
+						<img src="figs/IV-meanMAD-scatter.svg" class="plain">
+					</section>
+				</section>
+
+
+
+
+				<section>
+					<section data-background="#0F8554">
+						<h1>V</h1>
+						<h2>Low sample numbers</h2>
+					</section>
+
+					<section data-background="figs/saw.jpg" data-background-opacity=0.8>
+						<aside class="notes">
+
+						</aside>
+						<h1 style="color: white">Let's play a game</h1>
+					</section>
+
+					<section data-transition="none-out">
+						<aside class="notes">
+
+						</aside>
+						
+						<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
+						<img src="figs/V-nonnormal-gray.svg" class="plain" style="margin-top: -3%">
+					</section>
+
+					<section data-transition="none-in none-out">
+						<aside class="notes">
+
+						</aside>
+						
+						<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
+						<img src="figs/V-nonnormal-color1.svg" class="plain" style="margin-top: -3%">
+					</section>
+
+					<section data-transition="none-in none-out">
+						<aside class="notes">
+
+						</aside>
+						
+						<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
+						<img src="figs/V-nonnormal-color2.svg" class="plain" style="margin-top: -3%">
+					</section>
+
+					<section data-transition="none-in">
+						<aside class="notes">
+
+						</aside>
+						
+						<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
+						<img src="figs/V-nonnormal-color3.svg" class="plain" style="margin-top: -3%">
+					</section>
+
+					<section data-transition="none-in">
+						<aside class="notes">
+
+						</aside>
+						
+						<h3>And this is not made up!</h3>
+						<pre><code data-trim data-noescape class="python">
+							import numpy as np
+							import scipy as scp
+
+							for seed in tqdm(range(10000)): #seed is 4327
+							n = 15
+							np.random.seed(seed)
+							N = scp.stats.norm(0,1)
+							S2 = scp.stats.skewnorm(2)
+							S10 = scp.stats.skewnorm(10)
+							Nrvs, S2rvs, S10rvs = N.rvs(n), S2.rvs(n), S10.rvs(n)
+
+							if np.mean(S2rvs) < 0.45 and np.mean(Nrvs) > 0.7:
+							break
+						</code></pre>
+					</section>
+
+					<section data-transition="none-in">
+						<aside class="notes">
+
+						</aside>
+						
+						<h3>Shapiro Wilk is even worse at guessing</h3>
+						<img src="figs/V-shapiro-N.svg" class="plain">
+					</section>
+
+					<section data-transition="none-in" style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						
+						<h3>So...</h3>
+						<ul>
+							<li>Biological variables might not be normal</li>
+							<li>Shapiro-Wilk test fails for low n</li>
+						</ul>
+
+						<span class="fragment" style="text-align: center"><p><b>Any solutions?</b></p></span>
+					</section>
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h2>Solution (Assuming normality)<span class="fragment" style="color: #CC503E">[hard?]</span></h2>
+						<span class="fragment"><p>Calculate sample size. If we expect $|\hat{\mu} - \mu| = D$ then, with $\alpha=0.05$ (one tail): </p>
+							<p>$z_{0.05} = 1.65 \le \frac{\mu - \hat{\mu}}{\hat{\sigma}/\sqrt{n}} = \frac{D \sqrt{n}}{\hat{\sigma}} \iff n \ge  \left(\frac{z_{0.05}\hat{\sigma}}{D}\right)^2 \simeq  \color{#cc503e}{2.73\left( \frac{\hat{\sigma}}{D} \right)^2}$
+							</p></span>
+							<span class="fragment"><p>We barely never have that info.</p></span>
+						</section>
+
+						<section style="text-align: left">
+							<aside class="notes">
+
+							</aside>
+							<h2>Solution <span class="fragment" style="color: #73af48">[easy]</span></h2>
+							<span class="fragment"><p>Apply a lower $\alpha$: 0.01 or 0.005: is it better a FP or a FN?</p>
+							</span>
+							<span class="fragment"><p>Include effect sizes (Cohen's d, Hedges' g, <b>odds ratio</b>, <b>test statistics</b>).</p></span>
+							<span class="fragment"><p>95% Confidence interval (parametric), 2 and 98 percentiles of Walsh averages (non-parametric).</p>
+							</span>
+						</section>
+
+						<section style="text-align: left">
+							<aside class="notes">
+
+							</aside>
+							<h3>Walsh averages</h3>					
+							<ul>
+								<li>For $a_1, a_2, \cdots, a_n$ measurements, take all $s_{ij} = (a_i + a_j)/2\;\;i \le j$</li>
+								<li>Order the list $(s_{11}, s_{12}, \cdots, )$ and take the 2 and 98 percentiles.</li>
+							</ul>
+							<img src="figs/V-walsh.svg" class="plain" style="text-align: : center">
+						</section>
+					</section>
 
 
 
 
 					<section>
 						<section data-background="#38A6A5">
-							<h1>V</h1>
-							<h2>Low sample numbers</h2>
+							<aside class="notes">
+								Una correlación es espúrea cuando a la hora de realizar una correlación, una variable que no debería correlar con 
+								otra, por la razón que sea, lo hace. Es decir, sería el equivalente a un falso positivo de correlaciones.
+							</aside>
+							<h1>VI</h1>
+							<h2>Spurious correlations</h2>
+						</section>
+
+						<section style="text-align: left">
+							<aside class="notes">
+								La correlación más común que se realiza en ciencia es la correlación de Pearson. Es una correlación útil, pero
+								tiene una serie de asunciones que no suelen respetarse. EXPLICAR CADA OPCIÓN
+							</aside>
+							<h2>Pearson correlation</h2>
+							<p>Really useful for common datasets. <span class="fragment">But it has some assumptions. The most troublesome ones are:</span></p>
+							<ul>
+								<span class="fragment"><li>No outliers</li></span>
+								<span class="fragment"><li>Normality</li></span>
+								<span class="fragment"><li>Continuity</li></span>
+								<span class="fragment"><li>Linearity</li></span>
+								<span class="fragment"><li>Random variables come from same distribution</li></span>
+							</ul>
+							<span class="fragment"><p>We will put examples of spurious correlations and their viable solutions.</p></span>
 						</section>
 
 
+						<section style="text-align: left">
+							<h2>No outliers [Problem]</h2>
+							<img src="figs/IV-correlation-pearson.svg" text-align="center" class="plain" width="100%">	
+						</section>
+
+						<section style="text-align: left" data-transition="none-out">
+							<h3>Solution: Spearmann correlation</h3>
+							<span class="fragment"><p>Spearman correlation is calculated on the <b>rank</b> of the variables, not on their values.</p></span>
+							<span class="fragment"><p>More robust to <b>outliers</b>, <b>non-linearity</b> and <b>non-normality</b>.</p></span>	
+						</section>
+
+						<section style="text-align: left" data-transition="none-in none-out">
+							<h3>Solution: Spearmann correlation</h3>
+							<img src="figs/IV-correlation-spearman.svg" text-align="center" class="plain" width="100%">	
+						</section>
+
+						<section style="text-align: left">
+							<h3>Random variables from different distributions</h3>
+							<img src="figs/IV-correlation-blobs.svg" text-align="center" class="plain" width="100%">	
+						</section>
+
+
+						<section style="text-align: left">
+							<aside class="notes">
+
+							</aside>
+							<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
+							<span class="fragment"><p>Assert normality and linearity</p>
+							</span>
+							<span class="fragment"><p>If not, try Spearmann correlation</p></span>
+							<span class="fragment"><p>Outliers: check meaningfulness, else Spearmann</p></span>
+						</section>
+
 					</section>
+
+
+
 
 
 
