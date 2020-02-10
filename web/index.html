@@ -346,25 +346,138 @@
 
 						<section>
 							<section data-background="#73AF48">
-								<h1>I</h1>
-								<h2>Absence of [quality] control group</h2>
+								<aside class="notes">
+									Una correlación es espúrea cuando a la hora de realizar una correlación, una variable que no debería correlar con 
+									otra, por la razón que sea, lo hace. Es decir, sería el equivalente a un falso positivo de correlaciones.
+								</aside>
+								<h1>IV</h1>
+								<h2>Spurious correlations</h2>
+							</section>
+
+							<section style="text-align: left">
+								<aside class="notes">
+									La correlación más común que se realiza en ciencia es la correlación de Pearson. Es una correlación útil, pero
+									tiene una serie de asunciones que no suelen respetarse. EXPLICAR CADA OPCIÓN
+								</aside>
+								<h2>Pearson correlation</h2>
+								<p>Really useful for common datasets. <span class="fragment">But it has some assumptions. The most troublesome ones are:</span></p>
+								<ul>
+									<span class="fragment"><li>No outliers</li></span>
+									<span class="fragment"><li>Normality</li></span>
+									<span class="fragment"><li>Continuity</li></span>
+									<span class="fragment"><li>Linearity</li></span>
+									<span class="fragment"><li>Random variables come from same distribution</li></span>
+								</ul>
+								<span class="fragment"><p>We will put examples of spurious correlations and their viable solutions.</p></span>
+							</section>
+
+
+							<section style="text-align: left">
+								<h2>No outliers [Problem]</h2>
+								<img src="/figs/IV-correlation-pearson.svg" text-align="center" class="plain" width="100%">	
+							</section>
+
+							<section style="text-align: left" data-transition="none-out">
+								<h3>Solution: Spearmann correlation</h3>
+								<span class="fragment"><p>Spearman correlation is calculated on the <b>rank</b> of the variables, not on their values.</p></span>
+								<span class="fragment"><p>More robust to <b>outliers</b>, <b>non-linearity</b> and <b>non-normality</b>.</p></span>	
+							</section>
+
+							<section style="text-align: left" data-transition="none-in none-out">
+								<h3>Solution: Spearmann correlation</h3>
+								<img src="/figs/IV-correlation-spearman.svg" text-align="center" class="plain" width="100%">	
+							</section>
+
+							<section style="text-align: left">
+								<h3>Random variables from different distributions</h3>
+								<img src="/figs/IV-correlation-blobs.svg" text-align="center" class="plain" width="100%">	
+							</section>
+
+
+							<section style="text-align: left">
+								<aside class="notes">
+
+								</aside>
+								<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
+								<span class="fragment"><p>Assert normality and linearity</p>
+								</span>
+								<span class="fragment"><p>If not, try Spearmann correlation</p></span>
+								<span class="fragment"><p>Outliers: check meaningfulness, else Spearmann</p></span>
 							</section>
 
 						</section>
-
-
-
-
 
 
 						<section>
 							<section data-background="#0F8554">
-								<h1>I</h1>
-								<h2>Absence of [quality] control group</h2>
+								<h1>V</h1>
+								<h2>Data is not normal</h2>
 							</section>
 
+							<section style="text-align: left">
+								<h3>Many biological variables are not normal!</h3>
+								<img src="/figs/portada-nonnormal.png" class='plain' style="margin-top: -2%; margin-bottom: -2%">
+								<p>231 curated papers with non-normal data: Gamma, Negative Binomial, Binomial, etc.</p>
+							</section>
 
+							<section style="text-align: left">
+								<p>In transcriptomics, most of the data is skewed too! </p>
+							</section>
+
+							<section style="text-align: left">
+								<h2>Anscombe's quartet</h2>
+								<p>Datasets from different distributions can share similar descriptors!</p>
+								<span class="fragment"><img src="/figs/anscombe.png" class='plain' ></span>
+							</section>
+
+							<section style="text-align: left">
+								<h2>Anscombe's quartet</h2>
+								<p>Datasets from different distributions can share similar descriptors!</p>
+								<table style="width:35%; font-size: 25px">
+									<tr><td><span style="color: #73AF48">$\mu_X$: 9</span></td></tr>
+									<tr><td><span style="color: #73AF48">$\sigma_X$: 11</span></td></tr>
+									<tr><td><span style="color: #73AF48">$\mu_Y$: 7.5</span></td></tr>
+									<tr><td><span style="color: #73AF48">$\sigma_Y$: 4.125</span></td></tr>
+									<tr><td><span style="color: #73AF48">Correlation $X,Y$: 0.816</span></td></tr>
+									<tr><td><span style="color: #73AF48">Linear regression: $y = 3 + 0.5x$</span></td></tr>
+									<tr><td><span style="color: #CC503E">Median</span></td></tr>
+									<tr><td><span style="color: #CC503E">Median Absolute Deviation</span></td></tr>
+								</table> 
+							</section>
+
+							<section style="text-align: left">
+								<h2>Datasaurus!</h2>
+								<span class="fragment"><img src="/figs/datasaurus.png" class='plain' style="width: 75%; text-align: center"></span>
+							</section>
+
+							<section style="text-align: left">
+								<h3>Therefore...</h3>
+								<span class="fragment"><p>beware of the mean, variance, correlation of datasets!</p></span>
+							</section>
+
+							<section style="text-align: left">
+								<aside class="notes">
+
+								</aside>
+								<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+								<span class="fragment"><p>Assert normality of data: Shapiro-Wilk test <span style="color: #CC503E">(!!!)</span></p>
+							</span>
+							<span class="fragment"><p>If not, use <b>non-parametric</b> statistics</p>
+								<ul>
+									<li>t-test (1 var) $\rightarrow$ Wilcoxon rank test</li>
+									<li>t-test (2 var) $\rightarrow$ Mann-Whitney U test</li>
+
+								</ul>
+							</span>
+							<span class="fragment"><p>Use <b>robust</b> estimators</p>
+								<ul>
+									<li>Mean $\rightarrow$ median</li>
+									<li>Variance (2 var) $\rightarrow$ Mean Absolute Deviation</li>
+
+								</ul>
+							</span>
 						</section>
+					</section>
 
 
 
@@ -372,89 +485,89 @@
 
 
 
-						<section>
-							<section data-background="#38A6A5">
-								<h1>II</h1>
-								<h2>Absence of [quality] control group</h2>
-							</section>
-
-
-						</section>
-
-
-
-
-
-
-						<section>
-							<section data-background="#1D6996">
-								<h1>I</h1>
-								<h2>Absence of [quality] control group</h2>
-							</section>
-
-						</section>
-
-
-
-
-
-						<section>
-							<section data-background="#5F4690">
-								<h1>I</h1>
-								<h2>Absence of [quality] control group</h2>
-							</section>
-						</section>
-
-
-
-
-
-
-						<section>
-							<section data-background="#94346E">
-								<h1>I</h1>
-								<h2>Absence of [quality] control group</h2>
-							</section>
-
-
-						</section>
-
-
-
-
-
-
-						<section>
-							<section data-background="#6F4070">
-								<h1>I</h1>
-								<h2>Absence of [quality] control group</h2>
-							</section>
-
-
-						</section>
-
-
-
-
-
-
-						<section>
-							<section data-background="#994E95">
-								<h1>I</h1>
-								<h2>Absence of [quality] control group</h2>
-							</section>
-
-
+					<section>
+						<section data-background="#38A6A5">
+							<h1>V</h1>
+							<h2>Low sample numbers</h2>
 						</section>
 
 
 					</section>
-				</div>
+
+
+
+
+
+
+					<section>
+						<section data-background="#1D6996">
+							<h1>I</h1>
+							<h2>Absence of [quality] control group</h2>
+						</section>
+
+					</section>
+
+
+
+
+
+					<section>
+						<section data-background="#5F4690">
+							<h1>I</h1>
+							<h2>Absence of [quality] control group</h2>
+						</section>
+					</section>
+
+
+
+
+
+
+					<section>
+						<section data-background="#94346E">
+							<h1>I</h1>
+							<h2>Absence of [quality] control group</h2>
+						</section>
+
+
+					</section>
+
+
+
+
+
+
+					<section>
+						<section data-background="#6F4070">
+							<h1>I</h1>
+							<h2>Absence of [quality] control group</h2>
+						</section>
+
+
+					</section>
+
+
+
+
+
+
+					<section>
+						<section data-background="#994E95">
+							<h1>I</h1>
+							<h2>Absence of [quality] control group</h2>
+						</section>
+
+
+					</section>
+
+
+				</section>
 			</div>
+		</div>
 
-			<script src="js/reveal.js"></script>
+		<script src="js/reveal.js"></script>
 
-			<script>
+		<script>
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
