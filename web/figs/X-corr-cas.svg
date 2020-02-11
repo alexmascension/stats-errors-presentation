@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 100 60"
+   height="60mm"
+   width="100mm">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-237)"
+     id="layer1">
+    <text
+       transform="scale(0.97057536,1.0303167)"
+       id="text817"
+       y="287.06723"
+       x="1.3107042"
+       style="font-style:normal;font-weight:normal;font-size:17.60089684px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.44002241"
+       xml:space="preserve"><tspan
+         style="fill:#999999;stroke-width:0.44002241"
+         y="287.06723"
+         x="1.3107042"
+         id="tspan815">A</tspan></text>
+    <text
+       transform="scale(0.97057536,1.0303167)"
+       id="text817-3"
+       y="287.51108"
+       x="87.856628"
+       style="font-style:normal;font-weight:normal;font-size:17.60089684px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.44002241"
+       xml:space="preserve"><tspan
+         style="fill:#999999;stroke-width:0.44002241"
+         y="287.51108"
+         x="87.856628"
+         id="tspan815-6">B</tspan></text>
+    <path
+       transform="matrix(1.2691365,0,0,0.54200824,0.65141683,149.70663)"
+       d="m 63.877975,257.5015 -8.646205,4.99188 v -9.98377 z"
+       id="path839"
+       style="opacity:1;fill:#999999;fill-opacity:1;stroke:#ffffff;stroke-width:0.10699999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       id="path841"
+       d="M 71.766906,289.13163 H 20.982788"
+       style="fill:#999999;stroke:#999999;stroke-width:0.94130147;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       transform="scale(0.97057536,1.0303167)"
+       id="text845"
+       y="237.45769"
+       x="24.553238"
+       style="font-style:normal;font-weight:normal;font-size:8.62385178px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.2155963"
+       xml:space="preserve"><tspan
+         style="fill:#999999;stroke-width:0.2155963"
+         y="237.45769"
+         x="24.553238"
+         id="tspan843">Confounding</tspan><tspan
+         id="tspan847"
+         style="fill:#999999;stroke-width:0.2155963"
+         y="248.2375"
+         x="24.553238">variable</tspan></text>
+    <g
+       style="fill:#999999"
+       transform="matrix(-1.373427,0.90022582,0.84802762,1.4579648,-146.26339,-189.53673)"
+       id="g930-3">
+      <path
+         style="opacity:1;fill:#999999;fill-opacity:1;stroke:#ffffff;stroke-width:0.10699999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path839-0-6"
+         d="m 63.877975,257.5015 -8.646205,4.99188 v -9.98377 z"
+         transform="matrix(0.78626105,0,0,0.31631722,11.177152,203.18663)" />
+      <path
+         style="fill:#999999;stroke:#999999;stroke-width:0.50879288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 55.15895,284.55537 h -18.362"
+         id="path841-9-0" />
+    </g>
+    <g
+       style="fill:#999999"
+       transform="matrix(1.373427,0.90022583,-0.84802763,1.4579648,242.07622,-189.53673)"
+       id="g930-3-6">
+      <path
+         style="opacity:1;fill:#999999;fill-opacity:1;stroke:#ffffff;stroke-width:0.10699999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path839-0-6-2"
+         d="m 63.877975,257.5015 -8.646205,4.99188 v -9.98377 z"
+         transform="matrix(0.78626105,0,0,0.31631722,11.177152,203.18663)" />
+      <path
+         style="fill:#999999;stroke:#999999;stroke-width:0.50879288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 55.15895,284.55537 h -18.362"
+         id="path841-9-0-6" />
+    </g>
+  </g>
+</svg>
