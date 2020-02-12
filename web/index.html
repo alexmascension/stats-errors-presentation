@@ -67,7 +67,7 @@
 					<iframe width="80%" height="600" src="https://www.youtube.com/embed/Hz1fyhVOjr4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 					<aside class="notes">
-						To begin with, I would like to show you a video that Olga showed me a while ago. It might be a satirical representation of the interaction between biologists and statisticians, but this kind of situation does indeed commonly happen.
+						To begin with, I would like to show you a video that Olga showed me a while ago. It might be a satirical representation of the interaction between biologists and statisticians, but this kind of situation does indeed commonly happen. // In this presentation I will guide towards the mathematical or logical mistakes that we usually make when doing data analysis or performing an experiment. BUT, as we will see later, other SOCIAL factors are relevant for good science.
 					</aside>
 				</section>
 			</section>
@@ -77,21 +77,22 @@
 				<section data-background="#94346E">
 					<h1>.</h1>
 					<h2>101 STATS</h2>
-				</section>
-
-				<section>
-					<h2>101 Stats: median and Median Absolute Deviation (MAD)</h2>
-					<img src="figs/median-MAD.png" class='plain' style="width: 35%">
-
 					<aside class="notes">
-						To begin with, I would like to show you a video that Olga showed me a while ago. It might be a satirical representation of the interaction between biologists and statisticians, but this kind of situation does indeed commonly happen.
+						Just before we start, I want to make sure that some basics are known. I guess that you all remember the statistical tests and all this stuff, but I will do some refreshing, because great part of the presentation will be based on that, as you can imagine.
 					</aside>
 				</section>
 
 				<section>
-					<h2>Distributions and hypothesis testing</h2>
-					
+					<h2>Descriptors: median (M) and Median Absolute Deviation (MAD)</h2>
+					$\small{\text{Mean: } \mu = \frac{ 1}{N}\sum_i^N x_i \qquad \text{Variance: } \sigma^2 =  \frac{1}{N}\sum_i^N(x_i - \mu)^2}$
+					<img src="figs/median-MAD.png" class='plain' style="width: 35%">
+					<aside class="notes">
+						Before I talk about tests, I want to make sure we know about some statistical descriptors. We know what mean and standard deviation are. The idea of the mean is to find the "balance" point of the distribution, and the std tries to see how far from the mean the data lays. There are two other commonly used descriptors, equivalent to the mean and std: the median, and the MAD (we will say why they are important later). ** In the MAD, we SUBSTRACT THE MEDIAN FROM THE SAMPLES, as similar to the std** We will explain why they are important later, but simpy put, those descriptors are more robust in the sense that if I replace one of the numbers for other (6 for 10, 1 for 0, etc.) the descriptors should not change that much.
+					</aside>
+				</section>
 
+				<section>
+					<h2>Distributions</h2>
 					<table align="center" valing="center" style="padding: 0">
 						<tr>
 							<td  align="center" style="padding: 0; vertical-align: middle" >
@@ -104,12 +105,22 @@
 
 					</table>
 
+					<aside class="notes">
+						In this slides I will talk abouit two SIMILAR BUT SEPARATE THINGs. First, I want you to recall the famous alpha value, what is it, and also want you to understand the beta and 1-beta values. **Explain the two distributions about diabetes -> from the explain FP / FN etc -> from there explain alpha and beta**. RECALL THAT 1-beta WILL BE IMPORTANT IN THE REST OF PRESENTATION. As for hypotesis testing, *explain how contrasts are formulated* 
+					</aside>
+				</section>
+
+				<section>
+					<h2>Inference tests</h2>
 					<p style="text-align: center; %">$\begin{cases}
 						\scriptsize{ H_0: \hat{\mu}_{H_1} \le / = \mu_{H_0} }\\
 						\scriptsize{ H_1: \hat{\mu}_{H_1} >/\neq \mu_{H_0} }
-					\end{cases}$</p>
+					\end{cases} \rightarrow t, F, \chi^2,\cdots \rightarrow p\text{ - value}$</p>
+
+					<img src="figs/H0H1.svg" class='plain' width="40%" style="margin-bottom: 4%">
+					<img src="figs/p-value.svg" width="50%" class="plain" style="margin-left: 2%">
 					<aside class="notes">
-						To begin 
+						The second part is the iference test. With the example above, for instance we want to test whether the set of diabetics and the non-diabetics have different glucose levels. In order to do that, we have to transform this "notion" of difference into a number. This number is called stadistic. The fun thing about statistics is that THEY HAVE BEEN CRAFTED TO FOLLOW A CERTAIN DISTRIBUTION. So, why does the statistic follow that distribution? Suppose we take 10 random numbers from H0, and other 10 random numbers from H0, then compute the function for t. Now take other 10 points and other 10 points, it will give another point. The "sum" of all possible combinations of 10 numbers and 10 numbers produces a distribution, which is the distribution of the statistic. THUS, if we take 10 points from H0 and, NOW, 10 points from H1, where does the t value lay on? The more different the points, the more to the right or the left of the distribution they will go. So, if a point is far right, it can be because we have chosen two sets of points from H0 that are very different, or a set of H0 and a set of H1. Which is more likely? That's what we set the alpha for.  // SO now that we have grasped the basics of stats, we'll move on to see how can we fail using statistics!
 					</aside>
 				</section>
 
@@ -125,15 +136,13 @@
 
 				<section style="text-align: left">
 					<aside class="notes">
-						Qué queremos decir con la ausencia de controles de calidad? Pongamos un ejemplo. Queremos estudiar el comportamiento de un fármaco
-						en pacientes esquizofrénicos. // 
+						What do we want to say with QC? Let's put an example. Say we want to study the effect of a drug on schizofrenic patients. // 
 
-						Entonces tenemos un grupo experimental con varias variables, como el peso, altura, etc. //
+						Then we will have a experimental group with certain variables like weight // height // age // and other variables. Among them, the fact that they are schizofrenic and that they are taking the drug. // 
 
-						En un control de verdad, sólo una de todas las variables tiene que estar alterada, en este caso, que en lugar del fármaco damos
-						un placebo. //
+						In an ideal control, we would like a set of individuals that have the same values for all the variables but one: the drug. In this case, they should be taking a placebo. // 
 
-						Sin embargo, es probable que a la hora de diseñar el experimento no consideremos otras variables.
+						BUT, the common thing is that, when designing an experiment, the variables don't have the same values. Indeed, there are a set of common problems regarding controls that are not usually taken into account: // ->
 					</aside>
 					<!-- <h3 style="padding-bottom: 5%">The problem</h3> -->
 					<div>
@@ -174,15 +183,19 @@
 							</p>
 						</span>
 					</div>
-
-
-
-					<aside class="notes">
-
-					</aside>
 				</section>
 
 				<section style="text-align: left">
+					<aside class="notes">
+						In social experiments, sometimes experimenters are not blinded (they explain the aim of the study), and this impacts the results // 
+
+						Sometimes control and experiment groups are sampled at different times, and time should be considered another variable on the experiment // 
+
+						Sometimes the number of samples in the control set and the experimental set are not the same. I will not talk about this on the presentation, but this is really
+						common on Big Data analysis. For instance, we want to predict whether a breast image contains a cancer or not. In this case, it is common that there are many more images without cancer, and this usually is a problem for the algorithms. // 
+
+						An the most important one: many times all variables are not considered, and this can bias the experiment for a certain case. I will show you two examples on that: // ->
+					</aside>
 					<h2>Common problems</h2>
 					<ul>
 						<span class="fragment"><li>Experimenters are not blinded</li></span>
@@ -195,9 +208,8 @@
 
 				<section style="text-align: left" data-background="figs/dummy.jpg" data-background-opacity=0.2>
 					<aside class="notes">
-						Un ejemplo clásico fue el diseño de los tests de seguridad de vehículos. Los coches se diseñan
-						de modo que se minimiza el riesgo para los dummies. Pero los dummies son de composicion de hombre, luego
-						las mujeres sufren más daños en el mismo tipo de accidente, y más muertes.
+						All produced cars require a security test. Usually this tests consist of a dummy inside the car, and the car crashes. Based on the results we can infer the security of the car.
+						During decades, the dummies have been designed to consider an average male, and therefore some features of the cars, like the position of security belt, or airbags, has been adjusted for that dummy. As a result...  CITE
 					</aside>
 
 					<h3>Some examples (I)</h3>
@@ -210,9 +222,7 @@
 
 				<section style="text-align: left" data-background="figs/ambien.jpg" data-background-opacity=0.15>
 					<aside class="notes">
-						En este caso hablaremos de Ambien, un sedante. El ensayo clinico desarrollado para ambien solo fue testado en hombres. 
-						Varones caucásicos, 30 años, 70 kg. Resulta que las mujeres metabolizan el fármaco más lento. Como resultado, la FDA 
-						ha aconsejado a reducir a la mitad la dosis para mujeres.
+						The second case is of a drug, Ambien. Ambien is a sedative // When the drug was approved, the clinical trials featured "typical" caucasic men. // However, women metabolize ambien more slowly, so the drug does its effect more time. Many women reported that they still felt groggy while driving early in the morning, and in some cases traffic accidents happened // As a result, FDA recommended halving the intake of Ambien for women.
 					</aside>
 
 					<h3>Some examples (II)</h3>
@@ -580,7 +590,9 @@
 						</aside>
 						
 						<h3>Shapiro Wilk is even worse at guessing</h3>
-						<img src="figs/V-shapiro-N.svg" class="plain">
+						<img src="figs/V-shapiro-N.svg" class="plain" width="45%" vertical-align="middle">
+						<img src="figs/V-nonnormal-dists-recolored.svg" class="plain" width="45%" vertical-align="middle" style="margin-top: -2%">
+
 					</section>
 
 					<section data-transition="none-in" style="text-align: left">
@@ -599,7 +611,7 @@
 
 					<section style="text-align: left">
 						<aside class="notes">
-
+							The problem is that even this solution is not the perfect because it does not
 						</aside>
 						<h2>Solution (Assuming normality)<span class="fragment" style="color: #CC503E"> [hard?]</span></h2>
 						<span class="fragment"><p>Calculate sample size. If we expect $|\hat{\mu} - \mu| = D$ then, with $\alpha=0.05$ (one tail): </p>
@@ -608,7 +620,7 @@
 							<p style="text-align: center">$\color{#cc503e}{2.73\left( \frac{\hat{\sigma}}{D} \right)^2}$</p>
 						</span>
 						
-						<span class="fragment"><p>We barely ever have that info.</p></span>
+						<span class="fragment"><p>We barely ever have that info, and it does not acknowledge $\beta$.</p></span>
 					</section>
 
 					<section style="text-align: left">
@@ -855,6 +867,7 @@
 						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
 						<span class="fragment">
 							<ul>
+								<span class="fragment"><li>Be aware that we are multitesting.</li></span>
 								<span class="fragment"><li>Apply more stringent p-values (GWAS: $\sim 10^{-8}$).</li></span>
 								<span class="fragment"><li>Apply multiple test correction.
 									<ul>
@@ -958,6 +971,8 @@
 						</aside>
 						<h3 style="text-align: left;">Nobel awards VS ... </h3>  
 						<img src="figs/X-Nobel-grafica.png" class="plain" style="width: 100%">
+						<a href="https://academic.oup.com/jn/article/143/6/931/4571741" > <p style="text-align: right; font-size: 0.5em" >10.3945/jn.113.174813</p>
+						</a>
 					</section>
 
 
@@ -1000,7 +1015,7 @@
 						</span>
 						<span class="fragment"><p>Some methods exist to determine causality (for time series): Convergent Cross Mapping, Granger causality test.</p>
 						</span>
-						<span class="fragment"><p>If unsure conclusions as tentative</p></span>
+						<span class="fragment"><p>If unsure, present conclusions as tentative</p></span>
 					</section>
 				</section>
 
@@ -1036,24 +1051,24 @@
 						<h4 class="fragment">Sometimes science is a b*tch </h4>
 						<h4 class="fragment">statiticians can't do magic</h4>
 						<span class="fragment"> <h4>and when they try, they end up like this</h4>
-						<img src="figs/monkey.gif" class="plain"> </span>
-					</section> 
-				</section>
-
-				<section>
-					<section data-background="#94346E">
-						<h1>Thanks!</h1>
+							<img src="figs/monkey.gif" class="plain"> </span>
+						</section> 
 					</section>
+
+					<section>
+						<section data-background="#94346E">
+							<h1>Thanks!</h1>
+						</section>
+					</section>
+
+
 				</section>
-
-
-			</section>
+			</div>
 		</div>
-	</div>
 
-	<script src="js/reveal.js"></script>
+		<script src="js/reveal.js"></script>
 
-	<script>
+		<script>
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
