@@ -8,7 +8,7 @@
 
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/white.css">
+	<link rel="stylesheet" href="css/theme/mytheme.css">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
@@ -51,8 +51,7 @@
 					</table>
 
 					<aside class="notes">
-						En esta presentación voy no voy a presentaros lo que estoy trabajando, sino un paper que me encontré el otro día
-						y me resultó interesante. Es un paper en el que hablan sobre los problemas estadísticos más usuales que se presentan en ciencia.
+						This is a presentation I've been thinking of for a long time. I won't be explaining my results, as in the typical wetlab presentation, but I will focus on common mistakes scientists, and non-scientists, do when doing the analysis of their experiments.
 					</aside>
 				</section>
 
@@ -60,13 +59,17 @@
 					<img class="plain" src="figs/portada.png">
 
 					<aside class="notes">
-						El paper en cuestión es este. En él plantean 10 situaciones y la estructura para cada ella es similar: primero presentan el problema,
-						y después como detectarlo, y solucionarlo si es posible. En la presentación no pondré todos los casos, pero sí que añadiré alguno que 
-						he ido encontrando por mi cuenta.s
+						The main source of inspiration is this paper. In this paper they explain ten common statistical mistakes often done in academia, and which should be accounted for to improve the analysis. In this presentation I will inlude most of them, so it might be a bit lengthy.
 					</aside>
 				</section>
 
+				<section id="portada imagen">
+					<iframe width="80%" height="600" src="https://www.youtube.com/embed/Hz1fyhVOjr4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+					<aside class="notes">
+						To begin with, I would like to show you a video that Olga showed me a while ago. It might be a satirical representation of the interaction between biologists and statisticians, but this kind of situation does indeed commonly happen.
+					</aside>
+				</section>
 			</section>
 			
 
@@ -77,15 +80,47 @@
 				</section>
 
 				<section>
-					<h3>101 Stats: median and Median Absolute Deviation (MAD)</h3>
+					<h2>101 Stats: median and Median Absolute Deviation (MAD)</h2>
 					<img src="figs/median-MAD.png" class='plain' style="width: 35%">
+
+					<aside class="notes">
+						To begin with, I would like to show you a video that Olga showed me a while ago. It might be a satirical representation of the interaction between biologists and statisticians, but this kind of situation does indeed commonly happen.
+					</aside>
 				</section>
+
+				<section>
+					<h2>Distributions and hypothesis testing</h2>
+					
+
+					<table align="center" valing="center" style="padding: 0">
+						<tr>
+							<td  align="center" style="padding: 0; vertical-align: middle" >
+								<img src="figs/H0H1.svg" class='plain' style="margin: 1">
+							</td>
+							<td align="center" style="padding: 0; vertical-align: middle">
+								<img src="figs/H0H1-table.svg" class='plain' style="height: 70%">
+							</td>
+						</tr>
+
+					</table>
+
+					<p style="text-align: center; %">$\begin{cases}
+						\scriptsize{ H_0: \hat{\mu}_{H_1} \le / = \mu_{H_0} }\\
+						\scriptsize{ H_1: \hat{\mu}_{H_1} >/\neq \mu_{H_0} }
+					\end{cases}$</p>
+					<aside class="notes">
+						To begin 
+					</aside>
+				</section>
+
+
+
 			</section>
 
 			<section>
 				<section data-background="#CC503E">
 					<h1>I</h1>
-					<h2>Absence of [quality] control group</h2>
+					<h2>Absence of [quality] <br> control group</h2>
 				</section>
 
 				<section style="text-align: left">
@@ -101,41 +136,41 @@
 						Sin embargo, es probable que a la hora de diseñar el experimento no consideremos otras variables.
 					</aside>
 					<!-- <h3 style="padding-bottom: 5%">The problem</h3> -->
-					<div style="margin-left: -2%">
+					<div>
 						<p> <span class="fragment">Test</span></p>
 						<p>
-							<span class="fragment">$\stackrel{\text{weight}}{\large  A}\;\;$</span>
-							<span class="fragment">$\stackrel{\text{height}}{\large B}\;\;$</span>
-							<span class="fragment">$\stackrel{\text{age}}{\large C}\;\;$</span>
-							<span class="fragment"> $\cdots\;\;$
-								$\stackrel{\text{income}}{\large X}\;\;$
-								$\stackrel{\text{schizophrenia}}{\large Y}\;\;$
-							$\stackrel{\text{drug X}}{\large Z}$ </span>
+							<span class="fragment">$\stackrel{\text{weight}}{\normalsize  A}\;$</span>
+							<span class="fragment">$\stackrel{\text{height}}{\normalsize B}\;$</span>
+							<span class="fragment">$\stackrel{\text{age}}{\normalsize C}\;$</span>
+							<span class="fragment"> $\cdots\;$
+								$\stackrel{\text{income}}{\normalsize X}\;$
+								$\stackrel{\text{schizophrenia}}{\normalsize Y}\;$
+							$\stackrel{\text{drug X}}{\normalsize Z}$ </span>
 						</p>
 
 						<span class="fragment">
 							<p style="padding-top: 1%"> Control [ideal]</p>
 							<p>
-								$\stackrel{\text{weight}}{\large A}\;\;$
-								$\stackrel{\text{height}}{\large B}\;\;$
-								$\stackrel{\text{age}}{\large C}\;\;$
-								$\cdots\;\;$
-								$\stackrel{\text{income}}{\large X}\;\;$
-								$\stackrel{\text{schizophrenia}}{\large Y}\;\;$
-								$\stackrel{\text{placebo}}{\large \color{#8c0d04}{Z^*}}$ 
+								$\stackrel{\text{weight}}{\normalsize A}\;$
+								$\stackrel{\text{height}}{\normalsize B}\;$
+								$\stackrel{\text{age}}{\normalsize C}\;$
+								$\cdots\;$
+								$\stackrel{\text{income}}{\normalsize X}\;$
+								$\stackrel{\text{schizophrenia}}{\normalsize Y}\;$
+								$\stackrel{\text{placebo}}{\normalsize \color{#8c0d04}{Z^*}}$ 
 							</p>
 						</span>
 
 						<span class="fragment">
 							<p style="padding-top: 1%"> Control [real]</p>
 							<p>
-								$\stackrel{\text{weight}}{\large A}\;\;$
-								$\stackrel{\text{height}}{\large \color{#8c0d04}{B^*}}\;\;$
-								$\stackrel{\text{age}}{\large C}\;\;$
-								$\cdots\;\;$
-								$\stackrel{\text{income}}{\large \color{#8c0d04}{X^*}}\;\;$
-								$\stackrel{\text{schizophrenia}}{\large Y}\;\;$
-								$\stackrel{\text{placebo}}{\large \color{#8c0d04}{Z^*}}$ 
+								$\stackrel{\text{weight}}{\normalsize A}\;$
+								$\stackrel{\text{height}}{\normalsize \color{#8c0d04}{B^*}}\;$
+								$\stackrel{\text{age}}{\normalsize C}\;$
+								$\cdots\;$
+								$\stackrel{\text{income}}{\normalsize \color{#8c0d04}{X^*}}\;$
+								$\stackrel{\text{schizophrenia}}{\normalsize Y}\;$
+								$\stackrel{\text{placebo}}{\normalsize \color{#8c0d04}{Z^*}}$ 
 							</p>
 						</span>
 					</div>
@@ -206,7 +241,7 @@
 						otros fallos típicos también están asociados a los grados de libertad.
 					</aside>
 					<h1>II</h1>
-					<h2>Inflating the degrees of freedom</h2>
+					<h2>Inflating the degrees <br> of freedom</h2>
 				</section>
 
 				<section style="text-align: left">
@@ -573,114 +608,193 @@
 							<p style="text-align: center">$\color{#cc503e}{2.73\left( \frac{\hat{\sigma}}{D} \right)^2}$</p>
 						</span>
 						
-							<span class="fragment"><p>We barely ever have that info.</p></span>
-						</section>
+						<span class="fragment"><p>We barely ever have that info.</p></span>
+					</section>
 
-						<section style="text-align: left">
-							<aside class="notes">
+					<section style="text-align: left">
+						<aside class="notes">
 
-							</aside>
-							<h2>Solution II<span class="fragment" style="color: #73af48"> [easy]</span></h2>
-							<span class="fragment"><p>Apply a lower $\alpha$: 0.01 or 0.005: is it better a FP or a FN?</p>
-							</span>
-							<span class="fragment"><p>Include effect sizes (Cohen's d, Hedges' g, <b>odds ratio</b>, <b>test statistics</b>).</p></span>
-							<span class="fragment"><p>95% Confidence Interval (parametric), 2 and 98 percentiles of Walsh averages (non-parametric).</p>
-							</span>
-						</section>
+						</aside>
+						<h2>Solution II<span class="fragment" style="color: #73af48"> [easy]</span></h2>
+						<span class="fragment"><p>Apply a lower $\alpha$: 0.01 or 0.005: is it better a FP or a FN?</p>
+						</span>
+						<span class="fragment"><p>Include effect sizes (Cohen's d, Hedges' g, <b>odds ratio</b>, <b>test statistics</b>).</p></span>
+						<span class="fragment"><p>95% Confidence Interval (parametric), 2 and 98 percentiles of Walsh averages (non-parametric).</p>
+						</span>
+					</section>
 
-						<section style="text-align: left">
-							<aside class="notes">
+					<section style="text-align: left">
+						<aside class="notes">
 
-							</aside>
-							<h3>Walsh averages</h3>					
-							<ul>
-								<li>For $a_1, a_2, \cdots, a_n$ measurements, take all $s_{ij} = (a_i + a_j)/2\;\;i \le j$</li>
-								<li>Order the list $(s_{11}, s_{12}, \cdots, )$ and take the 2 and 98 percentiles.</li>
-							</ul>
-							<img src="figs/V-walsh.svg" class="plain" style="text-align: : center">
-						</section>
+						</aside>
+						<h3>Walsh averages</h3>					
+						<ul>
+							<li>For $a_1, a_2, \cdots, a_n$ measurements, take all $s_{ij} = (a_i + a_j)/2\;\;i \le j$</li>
+							<li>Order the list $(s_{11}, s_{12}, \cdots, )$ and take the 2 and 98 percentiles.</li>
+						</ul>
+						<img src="figs/V-walsh.svg" class="plain" style="text-align: : center">
+					</section>
+				</section>
+
+
+
+
+				<section>
+					<section data-background="#38A6A5">
+						<aside class="notes">
+							Una correlación es espúrea cuando a la hora de realizar una correlación, una variable que no debería correlar con 
+							otra, por la razón que sea, lo hace. Es decir, sería el equivalente a un falso positivo de correlaciones.
+						</aside>
+						<h1>VI</h1>
+						<h2>Spurious correlations</h2>
+					</section>
+
+					<section style="text-align: left">
+						<aside class="notes">
+							La correlación más común que se realiza en ciencia es la correlación de Pearson. Es una correlación útil, pero
+							tiene una serie de asunciones que no suelen respetarse. EXPLICAR CADA OPCIÓN
+						</aside>
+						<h2>Pearson correlation</h2>
+						<p>Really useful for common datasets. <span class="fragment">But it has some assumptions. The most troublesome ones are:</span></p>
+						<ul>
+							<span class="fragment"><li>No outliers</li></span>
+							<span class="fragment"><li>Normality</li></span>
+							<span class="fragment"><li>Continuity</li></span>
+							<span class="fragment"><li>Linearity</li></span>
+							<span class="fragment"><li>Random variables come from same distribution</li></span>
+						</ul>
+						<span class="fragment"><p>We will put examples of spurious correlations and their viable solutions.</p></span>
 					</section>
 
 
+					<section style="text-align: left">
+						<h2>No outliers [Problem]</h2>
+						<img src="figs/VI-correlation-pearson.svg" text-align="center" class="plain" width="100%">	
+					</section>
 
+					<section style="text-align: left">
+						<h3>Solution: Spearmann correlation</h3>
+						<span class="fragment"><p>Spearman correlation is calculated on the <b>rank</b> of the variables, not on their values.</p></span>
+						<span class="fragment"><p>More robust to <b>outliers</b>, <b>non-linearity</b> and <b>non-normality</b>.</p></span>	
+					</section>
+
+					<section style="text-align: left">
+						<h3>Solution: Spearmann correlation</h3>
+						<img src="figs/VI-correlation-spearman.svg" text-align="center" class="plain" width="100%">	
+					</section>
+
+					<section style="text-align: left">
+						<h3>Random variables from different distributions</h3>
+						<img src="figs/VI-correlation-blobs.svg" text-align="center" class="plain" width="100%">	
+					</section>
+
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
+						<span class="fragment"><p>Assert normality and linearity. If not, try Spearmann correlation</p>
+						</span>
+						<span class="fragment"><p>Assert data is monomodal, or cannot be divided into categories.</p></span>
+						<span class="fragment"><p>Outliers: check meaningfulness, else Spearmann</p></span>
+					</section>
+
+				</section>
+
+
+
+
+
+
+
+
+
+				<section>
+					<section data-background="#1D6996">
+						<h1>VII</h1>
+						<h2>Circular analysis</h2>
+					</section>
+
+					<section data-background="figs/doggo.gif" data-background-opacity=0.5>
+						<h2>What is circular analysis?</h2>
+
+						<span class="fragment"><blockquote>
+							&ldquo;In statistics, circular analysis is the selection of the details of a data analysis using the data that is being analysed.&rdquo;
+							<a href="https://en.wikipedia.org/wiki/Circular_analysis"> Wikipedia </a>
+						</blockquote> </span>
+
+					</section>
 
 					<section>
-						<section data-background="#38A6A5">
-							<aside class="notes">
-								Una correlación es espúrea cuando a la hora de realizar una correlación, una variable que no debería correlar con 
-								otra, por la razón que sea, lo hace. Es decir, sería el equivalente a un falso positivo de correlaciones.
-							</aside>
-							<h1>VI</h1>
-							<h2>Spurious correlations</h2>
+						<h2>It is easy to find patterns were there are none</h2>
+						<span class="fragment"><video src="figs/normal.mp4" width="49%"></video>
+							<video src="figs/line.mp4" width="49%"></video>
+							
+
 						</section>
+						
 
 						<section style="text-align: left">
-							<aside class="notes">
-								La correlación más común que se realiza en ciencia es la correlación de Pearson. Es una correlación útil, pero
-								tiene una serie de asunciones que no suelen respetarse. EXPLICAR CADA OPCIÓN
-							</aside>
-							<h2>Pearson correlation</h2>
-							<p>Really useful for common datasets. <span class="fragment">But it has some assumptions. The most troublesome ones are:</span></p>
+							<h2>Examples of circular analysis</h2>
 							<ul>
-								<span class="fragment"><li>No outliers</li></span>
-								<span class="fragment"><li>Normality</li></span>
-								<span class="fragment"><li>Continuity</li></span>
-								<span class="fragment"><li>Linearity</li></span>
-								<span class="fragment"><li>Random variables come from same distribution</li></span>
+								<span class="fragment"><li>Genomic analysis: apply filter until <b>our</b> set of genes appears.</li></span>
+								<span class="fragment"><li>Apply filters/thresholds to points that do not "<b>fit the data</b>". </li></span>
+								<span class="fragment"><li>In functional magnetic resonance imaging (fMRI) data, pre-processing is often needed, and might be applied incrementally until the analysis 'works'. (Wikipedia)</li></span>
 							</ul>
-							<span class="fragment"><p>We will put examples of spurious correlations and their viable solutions.</p></span>
-						</section>
-
-
-						<section style="text-align: left">
-							<h2>No outliers [Problem]</h2>
-							<img src="figs/VI-correlation-pearson.svg" text-align="center" class="plain" width="100%">	
 						</section>
 
 						<section style="text-align: left">
-							<h3>Solution: Spearmann correlation</h3>
-							<span class="fragment"><p>Spearman correlation is calculated on the <b>rank</b> of the variables, not on their values.</p></span>
-							<span class="fragment"><p>More robust to <b>outliers</b>, <b>non-linearity</b> and <b>non-normality</b>.</p></span>	
-						</section>
-
-						<section style="text-align: left">
-							<h3>Solution: Spearmann correlation</h3>
-							<img src="figs/VI-correlation-spearman.svg" text-align="center" class="plain" width="100%">	
-						</section>
-
-						<section style="text-align: left">
-							<h3>Random variables from different distributions</h3>
-							<img src="figs/VI-correlation-blobs.svg" text-align="center" class="plain" width="100%">	
-						</section>
-
-
-						<section style="text-align: left">
-							<aside class="notes">
-
-							</aside>
 							<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
-							<span class="fragment"><p>Assert normality and linearity. If not, try Spearmann correlation</p>
-							</span>
-							<span class="fragment"><p>Assert data is monomodal, or cannot be divided into categories.</p></span>
-							<span class="fragment"><p>Outliers: check meaningfulness, else Spearmann</p></span>
+							<span class="fragment">Let's give a glance at machine learning (they have learned to do it well).</span>
+						</section>
+						
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<img src="figs/ML-example-0.svg" class="plain" width="40%">
 						</section>
 
-					</section>
 
+						<section>
+							<aside class="notes">
 
-
-
-
-
-
-
-
-					<section>
-						<section data-background="#1D6996">
-							<h1>I</h1>
-							<h2>Absence of [quality] control group</h2>
+							</aside>
+							<img src="figs/ML-example-1.svg" class="plain" width="100%">
 						</section>
 
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<img src="figs/ML-example-1.5.svg" class="plain" width="40%">
+						</section>
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<img src="figs/ML-example-2.svg" class="plain" width="100%">
+						</section>
+
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<img src="figs/ML-example-3.svg" class="plain" width="100%">
+						</section>
+
+						<section style="text-align: left">
+							<h2>So... how can we apply this?</h2>
+							<span class="fragment">If there are enough technical replicates / data points...</span>
+							<span class="fragment">subset the data into training / test set (60/40 or 70/30).</span>
+
+							<span class="fragment"><p></p>Consider the results as "valid" if they replicate in test set.</span>
+						</section>
 					</section>
 
 
@@ -689,61 +803,257 @@
 
 					<section>
 						<section data-background="#5F4690">
-							<h1>I</h1>
-							<h2>Absence of [quality] control group</h2>
-						</section>
-					</section>
-
-
-
-
-
-
-					<section>
-						<section data-background="#94346E">
-							<h1>I</h1>
-							<h2>Absence of [quality] control group</h2>
+							<h1>VIII</h1>
+							<h2>Failing to correct for <br> multiple comparisons</h2>
 						</section>
 
+						<section>
+							<h2 style="text-align: left" >One statistic test at a time!</h2>
+							<span class="fragment"> 
+								<p style="text-align: left">We <b>must not</b> forget that one test is for a specific variable: a gene, a voxel, an experiment... </p>
+								<img src="figs/p-value.svg" class="plain", style="width: 65%" align="middle"></span>
+							</span>
 
-					</section>
 
-
-
-
-
-
-					<section>
-						<section data-background="#6F4070">
-							<h1>I</h1>
-							<h2>Absence of [quality] control group</h2>
 						</section>
 
-
-					</section>
-
-
-
-
-
-
-					<section>
-						<section data-background="#994E95">
-							<h1>I</h1>
-							<h2>Absence of [quality] control group</h2>
+						<section data-transition="none-out">
+							<h3 style="text-align: left">A theoretical example: gene expression</h3>
+							<img src="figs/VIII-array-gray.svg" class="plain", style="width: 100%" align="middle"></span>
 						</section>
 
+						<section data-transition="none-in none-out">
+							<h3 style="text-align: left">A theoretical example: gene expression</h3>
+							<img src="figs/VIII-array-color.svg" class="plain", style="width: 100%" align="middle"></span>
+						</section>
 
+						<section data-transition="none-in">
+							<h3 style="text-align: left">A theoretical example: gene expression</h3>
+							<img src="figs/VIII-array-color-sorted.svg" class="plain", style="width: 100%" align="middle"></span>
+						</section>
+
+						<section data-background="https://media0.giphy.com/media/5NAWDQEPeFFle/giphy.gif?cid=790b761116c13fb79de8972d0ac86f4715dae09ae5942a18&rid=giphy.gif" 
+						data-background-opacity="0.4">
+						<h3 style="text-align: left">A practical example: a salmon in a social environment</h3>
+
+						<a href="https://teenspecies.github.io/pdfs/NeuralCorrelates.pdf" ><p style="font-size: 80%"> Bennett CM, Baird AA, Miller MB, Wolford GL. Neural correlates of interspecies perspective taking in the post-mortem Atlantic salmon: an argument for proper multiple comparisons correction
+							. <b> J Serendipitous Unexpected Results </b> 2009
+						; 1: 1–5.</a>
 					</section>
 
+					<section data-transition="none-out">
+						<img src="figs/salmon1.png" class="plain", style="width: 80%" align="middle"></span>
+						<img src="figs/salmon2.png" class="plain", style="width: 80%" align="middle"></span>
+					</section>
 
+					<section data-transition="none-out">
+						<img src="figs/salmon3.png" class="plain", style="width: 40%" align="middle"></span>
+						<img src="figs/salmon4.png" class="plain", style="width: 70%; margin-top: -2%" align="middle"></span>
+					</section>
+
+					<section style="text-align: left">
+						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+						<span class="fragment">
+							<ul>
+								<span class="fragment"><li>Apply more stringent p-values (GWAS: $\sim 10^{-8}$).</li></span>
+								<span class="fragment"><li>Apply multiple test correction.
+									<ul>
+										<span class="fragment"><li>Bonferroni: $\alpha^* = \frac{\alpha}{N}$. <span style="color: #909090">(Maybe too stringent)</span></li>
+										<li>Benjamini-Hochberg (aka FDR).</li></span>
+									</ul>
+								</li></span>
+							</ul>
+						</span>							
+					</section>
 				</section>
-			</div>
+
+
+
+				<section>
+					<section data-background="#94346E">
+						<h1>IX</h1>
+						<h2>Over-interpreting <br> non-significant results</h2>
+					</section>
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h3>What happens when p > 0.05?</h3>
+						<span class="fragment">
+							The test is negative, there is no effect. 
+						</span>
+						<span class="fragment">
+							Well, not always. <p></p> It can imply that...
+						</span>
+						<ul>
+							<li class="fragment">
+								there is too much noise (resolutive power of technique not enough)
+							</li>
+							<li class="fragment">
+								the dataset is too small
+							</li>
+						</ul>
+
+						<span class="fragment">
+							<img src="figs/IX-p.svg" class="plain">
+						</span>
+					</section>
+					<section>
+						<aside class="notes">
+
+						</aside>
+						<img src="figs/H0H1.svg" class="plain" width="40%" style="margin-bottom: -2%">
+						<img src="figs/IX-p.svg" class="plain" width="80%" style="margin-bottom: -2%">
+						<img src="figs/IX-p-dists.svg" class="plain" width="70%" style="margin-bottom: -2%">
+					</section>
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
+						<span class="fragment"><p>Assess the minimum $n$ and the statistical power before the analysis.</p>
+						</span>
+						<span class="fragment"><p>Assert the power is enough after analysis.</p></span>
+						<span class="fragment"><p>If not sure (or not possible), do not over-interpret negative results.</p></span>
+					</section>
+				</section>
+
+
+
+
+
+
+				<section>
+					<section data-background="#6F4070">
+						<h1>X</h1>
+						<h2>Correlation <span style="color: #000000"> <p> does not imply </p></span> causation!</h2>
+					</section>
+
+
+					<section style="text-align: left">
+						<aside class="notes">
+
+						</aside>
+						<h3>Finding correlations is easy</h3>
+						<span class="fragment">
+							<h3 style="text-align: right">explaining their cause is not.</h3>
+							<p style="color: #909090; text-align: center; margin-top: 7%" > Let's see some examples.</p>
+						</span>
+					</section>
+
+
+					<section>
+						<aside class="notes">
+
+						</aside>
+						<img src="figs/X-chart1.svg" class="plain" style="width: 80%">
+						<img src="figs/X-chart2.svg" class="plain" style="width: 80%; margin-top: -2%">
+					</section>
+
+
+					<section>
+						<aside class="notes">
+
+						</aside>
+						<h3 style="text-align: left;">Nobel awards VS ... </h3>  
+						<img src="figs/X-Nobel-grafica.png" class="plain" style="width: 100%">
+					</section>
+
+
+					<section>
+						<aside class="notes">
+
+						</aside>
+						<img src="figs/X-real-example.png" class="plain" style="width: 80%">
+					</section>
+
+
+					<section>
+						<aside class="notes">
+
+						</aside>
+						<h3 style="text-align: left;">It all boils down to... </h3> <h3 style="text-align: right" class="fragment">confounding variables. </h3> 
+						<span class="fragment"><img src="figs/X-corr-cas.svg" class="plain" style="width: 40%"></span>
+						<span class="fragment"><p>Maybe more talkative / social people are perceived as more attractive, and also find better jobs? </p></span>
+					</section>
+
+
+					<section>
+						<aside class="notes">
+
+						</aside>
+						<h3 style="text-align: left;">A more important case<span style="text-align: right" class="fragment">: smoking causes cancer</span></h3> 
+						<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe a better diagnosis implied a higher detection rate.</p></span>
+						<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe people genetically predispose to smoking have higher chances of lung cancer.</p></span>
+						<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe industrial development incited easyness to tobacco, and easyness to cars $\rightarrow$ cancers are cause by pollution in general.</p></span>
+						<span></span>
+						<span class="fragment"><img src="figs/X-smoke-cancer.png" class="plain" style="width: 60%; margin-bottom: -3%"></span>
+
+					</section>
+
+					<section style="text-align: left">
+						<h2>Solution <span class="fragment" style="color: #CC503E">[hard]</span></h2>
+						<span class="fragment"><p>Be aware of possible underlaying confounding variables, and try to detect them</p>
+						</span>
+						<span class="fragment"><p>If confounding variables are found, try to adjust data.</p>
+						</span>
+						<span class="fragment"><p>Some methods exist to determine causality (for time series): Convergent Cross Mapping, Granger causality test.</p>
+						</span>
+						<span class="fragment"><p>If unsure conclusions as tentative</p></span>
+					</section>
+				</section>
+
+
+
+
+
+
+				<section>
+					<section data-background="#994E95">
+						<h1>.</h1>
+						<h2>Conclusions</h2>
+					</section>
+
+					<section>
+						<aside class="notes">
+							Given the amount of *only* statistical reasons a experiment might go awry, it is not uncommon to suffer from a 
+							reproducibility crisis. Indeed, nature did a poll to 1576 scientists and found that 52% of them believed there was a significant reproducibility crisis, and 38% believed there was a slight crisis. We indeed can see here that, regardless of discipline, more than half of the scientists failed to replicate either their own or else's work. 
+							Poor statistical analysis is one of the main causes for that outcome, but we should consider more important others as well, such as the pressure to publish or the insufficient mentoring.
+
+						</aside>
+						<h3 style="text-align: left;">Reproducibility matters</h3> 
+						<img src="figs/nature-reproducibility.png" class="plain" style="width: 100%">
+						<p style="text-align: right"><a href="https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970" style="font-size: 0.5em; ¡">1,500 scientists lift the lid on reproducibility</a></p>
+					</section> 
+
+					<section>
+						<aside class="notes">
+							Take home message:
+
+						</aside>
+						<h2>Take home message</h2> 
+						<h4 class="fragment">Sometimes science is a b*tch </h4>
+						<h4 class="fragment">statiticians can't do magic</h4>
+						<span class="fragment"> <h4>and when they try, they end up like this</h4>
+						<img src="figs/monkey.gif" class="plain"> </span>
+					</section> 
+				</section>
+
+				<section>
+					<section data-background="#94346E">
+						<h1>Thanks!</h1>
+					</section>
+				</section>
+
+
+			</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
+	<script>
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies

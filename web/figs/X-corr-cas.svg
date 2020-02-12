@@ -5,11 +5,35 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg8"
    version="1.1"
    viewBox="0 0 100 60"
    height="60mm"
-   width="100mm">
+   width="100mm"
+   sodipodi:docname="X-corr-cas.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="871"
+     id="namedview21"
+     showgrid="false"
+     inkscape:zoom="0.94720833"
+     inkscape:cx="12.668807"
+     inkscape:cy="114.44156"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
   <defs
      id="defs2" />
   <metadata
@@ -20,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -32,9 +56,9 @@
        id="text817"
        y="287.06723"
        x="1.3107042"
-       style="font-style:normal;font-weight:normal;font-size:17.60089684px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.44002241"
+       style="font-style:normal;font-weight:normal;font-size:17.60078825px;line-height:1.25;font-family:Laksaman;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.44002241;-inkscape-font-specification:'Laksaman, Normal';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
        xml:space="preserve"><tspan
-         style="fill:#999999;stroke-width:0.44002241"
+         style="fill:#999999;stroke-width:0.44002241;-inkscape-font-specification:'Laksaman, Normal';font-family:Laksaman;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.60078825px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
          y="287.06723"
          x="1.3107042"
          id="tspan815">A</tspan></text>
@@ -43,9 +67,9 @@
        id="text817-3"
        y="287.51108"
        x="87.856628"
-       style="font-style:normal;font-weight:normal;font-size:17.60089684px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.44002241"
+       style="font-style:normal;font-weight:normal;font-size:17.60078825px;line-height:1.25;font-family:Laksaman;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.44002241;-inkscape-font-specification:'Laksaman, Normal';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
        xml:space="preserve"><tspan
-         style="fill:#999999;stroke-width:0.44002241"
+         style="fill:#999999;stroke-width:0.44002241;-inkscape-font-specification:'Laksaman, Normal';font-family:Laksaman;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.60078825px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
          y="287.51108"
          x="87.856628"
          id="tspan815-6">B</tspan></text>
@@ -63,14 +87,14 @@
        id="text845"
        y="237.45769"
        x="24.553238"
-       style="font-style:normal;font-weight:normal;font-size:8.62385178px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.2155963"
+       style="font-style:normal;font-weight:normal;font-size:8.62400524px;line-height:1.25;font-family:Laksaman;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.2155963;-inkscape-font-specification:'Laksaman, Normal';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
        xml:space="preserve"><tspan
-         style="fill:#999999;stroke-width:0.2155963"
+         style="fill:#999999;stroke-width:0.2155963;-inkscape-font-specification:'Laksaman, Normal';font-family:Laksaman;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.62400524px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
          y="237.45769"
          x="24.553238"
          id="tspan843">Confounding</tspan><tspan
          id="tspan847"
-         style="fill:#999999;stroke-width:0.2155963"
+         style="fill:#999999;stroke-width:0.2155963;-inkscape-font-specification:'Laksaman, Normal';font-family:Laksaman;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.62400524px;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
          y="248.2375"
          x="24.553238">variable</tspan></text>
     <g
