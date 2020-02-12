@@ -237,27 +237,25 @@
 					<span class="fragment"><p>Be aware of as many variables as possible</p>
 					</span>
 					<span class="fragment"><p>Present conclusions as tentative</p></span>
+
+					<aside class="notes">
+						So, what can we do to minimize this error? // First, try to minimize the possible sources of variation, or account for them. This requires READING MORE BIBLIOGRAPHY ON PREVIOUS TRIALS OR SIDE EFFECTS THAT HAVE BEEN FOUND. // However, this many times is like finding a needle in a haystack, so we should present conclusions as tentative.
+					</aside>
 				</section>
 			</section>
 
 
 
-
-
 			<section>
 				<section data-background="#EDAD08">
-					<aside class="notes">
-						Como concepto básico de estadística tenemos los grados de libertad. Es hablo de los grados de libertad por las equivocaciones típicas que hay con ellos, además de que 
-						otros fallos típicos también están asociados a los grados de libertad.
-					</aside>
+
 					<h1>II</h1>
 					<h2>Inflating the degrees <br> of freedom</h2>
 				</section>
 
 				<section style="text-align: left">
 					<aside class="notes">
-						DEFINIR GRADO DE LIBERTAD // Por ejemplo, suponemos que queremos estimar la media de la altura de una población y tenemos 10 personas.
-						Los grados de libertad son 9 porque la altura de la décima persona puede sacarse en base a la altura de las 9 personas y la media.
+						Another common statistic concept are the degrees of freedom // READ DESCRIPTION // How can intuitively grasp N-1. Lets imagine we have a population of 10 people, and we know their mean. Then, we don't need one of the elements of the population, because it can be recovered using the mean and the rest of the population. However, if we have 8 people, we cannot recover that information, because we lack 2 elements. Thus, we say that the DoF are N-1 // Same with two means, each from one population.
 					</aside>
 					<h2>What is a degree of freedom?</h2>
 					<span class="fragment"><p>N of <b>independent</b> pieces of information to calculate the estimate</p>
@@ -270,8 +268,7 @@
 
 				<section style="text-align: left">
 					<aside class="notes">
-						Vamos a simular datos normales. En este caso, van a tener media 0.5 y desviación 1. Queremos ver si la media de la población 
-						es mayor que 0.
+						So, why is important to know the degrees of freedom of our sample? // I am going to try to convince you. For that, we will start easy, with 1 population. We are going to simulate some random points taken from a Normal distribution with mean 0.5 and deviation of 1. // We want to test if the mean of the population is greater than zero, so we do a test. // ->
 					</aside>
 
 					<h2>Why are DoF important?  </h2><h4>(1 sample)</h4>
@@ -288,10 +285,10 @@
 
 					<section >
 						<aside class="notes">
-							Suponemos dos casos. En el caso de la izquierda tenemos 20 puntos, luego los grados de libertad son 19. En el 
-							caso de la derecha tenemos que hemos duplicado los puntos para tener un total de 40, luego los grados de libertad
-							son 39. En este caso, por ejemplo, la distribución de la izquierda no aseguramos que tenga media mayor que 0, pero en 
-							la de la derecha sí.
+							Let's suppose two cases: on the left, we just take 20 points from that distribution, and we do the test. The DoF are 19, so with that number of samples the p-val is 0.11 and we cannot assess that, with those 20 points, the distribution they come from has a mean greater than 0. // 
+							
+							BUT let's imagine that, for some reason, we duplicate the DoF. To do the calculations, this is the equivalent as "duplicating" the points from the previous dataset. In that case, 
+							the number of points is 40, the DoF 39 and the p-value is 0.02, so we wan assess that the distribution these data come from has a mean greater than 0.
 						</aside>
 						<h2 style="text-align: left">Why are DoF important?  </h2><h4 style="text-align: left">(1 sample)</h4>
 						<img src="figs/II-pvalues-20VS40.svg" text-align="center" class="plain" width="65%">						
@@ -299,9 +296,7 @@
 
 					<section >
 						<aside class="notes">
-							Ahora extendemos el caso a varias N. Vamos a suponer que simulamos 1000 veces una población con media 0, 0.5, y 1. 
-							El contraste de hipótesis anterior se cumple en 0.05 para mu = 0.5 en N = 30. Entonces si tomamos duplicamos el 
-							DoF, con hasta N = 30 sufrimos ese fenómeno, y el resultado del contraste sería falso.
+							So, we have seen the case for N = 20. And what about the rest? Well, if we use the simulation from before, but extend it to up to 100 samples, we see that until 30 data points, the p-value is greater than 0.05. But if out N lays between 15 and 30, mistaking the DoF can make our data be statistically significant. If we make harsher conditions (N(1,1)), then N is smaller, and there is not some much risk, but if the number of data is small (WE ARE USING 4 MICE FOR INSTANCE), the same as before might happen.
 						</aside>
 						<h2 style="text-align: left">Why are DoF important?  </h2><h4 style="text-align: left">(1 sample)</h4>
 						<img src="figs/II-pvalues-N.svg" text-align="center" class="plain" width="65%">								
@@ -309,7 +304,7 @@
 
 					<section >
 						<aside class="notes">
-							Vamos a practicar esto con dos ejemplos tipicos que suelen fallarse.
+							So, now that we understand the problem, let's focus on a more "real" case. // Let's supose we have 20 patients with schizophrenia, 10 of which receive a placebo, and 10 of which receive a treatment. We want to test whether the drug has a positive impact on the illness. // Then, what is the DoF? // Since we are running a hypothesis with two groups with different people on each, the DoF are 18.
 						</aside>
 						<h2 style="text-align: left">Extending DoF to 2 samples.</h2>
 						<span class="fragment">
@@ -331,8 +326,7 @@
 
 					<section >
 						<aside class="notes">
-							Vamos a practicar esto con dos ejemplos tipicos que suelen fallarse. En este primer caso tenemos 10 personas a las que se les da un placebo
-							y 10 a las que se les da una droga. Cual es la $N$ 20 - 2 = 18
+							Now, lets suppose that we have another clincal trial with 10 patients. We measure some variable, give them the drug, and then measure the same variable after some time. // Now, what is the DoF? // In this case, although we have 20 measurements we don't have 20 people, but 10. Indeed, the way to test the relevance of the trial is to compute differente before and after the experiment. Thus, the DoF is 9.
 						</aside>
 						<h2 style="text-align: left">Extending DoF to 2 samples.</h2>
 						<span class="fragment">
@@ -354,7 +348,7 @@
 
 					<section style="text-align: left">
 						<aside class="notes">
-
+							So, if we have run our test incorrectly, what can we do? // Run the correct test and adapt the number of samples. // And if the results now turn out negative present them as tentative.
 						</aside>
 						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
 						<span class="fragment"><p>Adapt to DoF and rerun the test.</p></span>
@@ -366,8 +360,7 @@
 				<section>
 					<section data-background="#E17C05">
 						<aside class="notes">
-							En el segundo caso tenemos que a 10 personas se les mide la variable, se les hace tomar un medicamento, y luego se les mide la variable.
-							Entonces N = 9.
+							
 						</aside>
 						<h1>III</h1>
 						<h2>Interpret <div style="color: #FFFFFF">comparisons</div> between groups <div style="color: #FFFFFF">without comparing</div> them</h2>
@@ -375,19 +368,14 @@
 
 					<section>
 						<aside class="notes">
-							En este primer caso, imaginemos que hacemos dos experimentos y nos salen las dos correlaciones. EXPLICAR P y R!!!! Si las analizamos por separado, tenemos que
-							la correlación azul, por ejemplo, tiene una correlacion positiva, mientras que la correlación roja es negativa. Entonces, lo lógico sería pensar que los datos
-							provienen de dos distribuciones diferentes. Sin embargo, si hacemos un test de Kolmogorov-Smirnov de 2D, nos da que ambas muestras pueden provenir de la misma 
-							distribución.
+							It is common to have several experiments done at once. Sometimes results from two experiments might be different, so we automatically assume that the datasets by themselves are different, and this might not be the case. In this example we did two correlations, one for each color. We see that for the red color the correlation was non-significant, and for the blue one it was significant.
+							HOWEVER, if we run a Kolmogorov-Smirnov test, which is a test to compare two distributions, it returns a negative p-value, so we cannot ascertain that the distributions from which the two sets come are different.
 						</aside>
-						<img src="figs/III-corrs.svg"  class="plain" style="width: 88%">
+						<img src="figs/III-corrs.svg"  class="plain" style="width: 90%; margin-left: -8%">
 					</section>
 					<section>
 						<aside class="notes">
-							En este segundo caso planteamos una situación distinta. Supongamos que tenemos dos experimentos en los que introducimos una perturbación. 
-							Por cada experimento queremos testear que, por ejemplo, un medicamento ha aumentado los niveles de cortisol en sangre. El farmaco A, por la hipótesis, 
-							cumple que ha aumentado los niveles, pero el B no. Entonces A y B actuan diferentemente. Sin embargo, si hacemos un t test entre ambas muestras, el test sale
-							que ambos fármacos no son diferentes.
+							In this case, we have two sets of points that come from the same distribution N(2,2). We want to test whether the mean of the distribution is 0. For the red case, it is, but for the blue one it is not. However a t-test of two independent samples says that both distributions are different.
 						</aside>
 						<img src="figs/III-ttest.svg"  class="plain" style="width: 88%">
 						<p style="text-align: center; margin-top: -2%">$\tiny{\begin{cases}
@@ -395,10 +383,15 @@
 							H_1: \mu_X > 0
 						\end{cases}}$</p>
 					</section>
-
+					<section>
+						<aside class="notes">
+							And we can pursue just the opposite. In this case the two distributions are different N(1, 2), N(0.5, 2), as we see with the t-test of two samples, but each individual test to see if the mean is different than zero yields negative.
+						</aside>
+						<img src="figs/III-ttest-diff.svg"  class="plain" style="width: 88%">
+					</section>
 					<section style="text-align: left">
 						<aside class="notes">
-
+							So, what's the solution? Well, if you want to publish the indirect comparisons, run the tests!
 						</aside>
 						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
 						<span class="fragment"><p>Avoid comparing statistics from different tests at once</p>
@@ -412,22 +405,26 @@
 				<section>
 					<section data-background="#73AF48">
 						<h1>IV</h1>
-						<h2>Data is not normal</h2>
+						<h2>Data is not normal <br> (and you should not rely only on estimators)</h2>
+						<aside class="notes">
+							The classical statistics as we know is usually based on the normal distribution. The normal distribution has a certain set of mathematical properties that makes it "beautiful". 
+							But, as usual ...// 
+						</aside>
 					</section>
 
-
-
 					<section style="text-align: left">
+						<aside class="notes">
+							... there are many cases, in biology or any other realm of knowledge, were variables do not follow a normalk distribution. In out case [the computationals (TM)], gene expression data, whether in bulk or in single cell, is never normal. In this paper they purge over 1000 papers and found many of them with nonnormal distributions. More interestingly, this NUMBER IS EVEN HIGHER, because many papers disguise their experimental distributions as normal when, in reality, they are not.
+						</aside>
 						<h3>Many biological variables are not normal!</h3>
 						<img src="figs/portada-nonnormal.png" class='plain' style="margin-top: -2%; margin-bottom: -2%">
 						<p>231 curated papers with non-normal data: Gamma, Negative Binomial, Binomial, etc.</p>
 					</section>
 
 					<section style="text-align: left">
-						<p>In transcriptomics, most of the data is skewed too! </p>
-					</section>
-
-					<section style="text-align: left">
+						<aside class="notes">
+							CAMBIAR HISTORIA AQUI!!!!!!!!!!! Explicar que, por un lado, la media y std no son buenos descriptores para datos no normales (poner las diapos de distribuciones primero). En segundo lugar, los cientificos de poyata sobre todo, están más acostumbrados a fiarse solo de los descriptores para hacer inferencias sobre las diferencias poblacionales, y es que muchas veces los datasets pueden ser de naturaleza muy diferente, y mantener los descriptores igual. Para estos casos lo mejor es emplear descriptores robustos con no robustos, porque es menos probable que los dis datasets igualen ambos descriptores y, además, si comparamos media con mediana, podemos ver cuan sesgado es nuestro dataset.
+						</aside>
 						<h2>Anscombe's quartet</h2>
 						<p>Datasets from different distributions can share similar descriptors!</p>
 						<span class="fragment"><img src="figs/anscombe.png" class='plain' ></span>
