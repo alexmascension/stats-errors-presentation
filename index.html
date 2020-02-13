@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>reveal.js</title>
+	<title>Alex M. Ascensión - Web</title>
 
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/reveal.css">
@@ -414,24 +414,46 @@
 
 					<section style="text-align: left">
 						<aside class="notes">
-							... there are many cases, in biology or any other realm of knowledge, were variables do not follow a normalk distribution. In out case [the computationals (TM)], gene expression data, whether in bulk or in single cell, is never normal. In this paper they purge over 1000 papers and found many of them with nonnormal distributions. More interestingly, this NUMBER IS EVEN HIGHER, because many papers disguise their experimental distributions as normal when, in reality, they are not.
+							... there are many cases, in biology or any other realm of knowledge, were variables do not follow a normal distribution. In out case [the computationals (TM)], gene expression data, whether in bulk or in single cell, is never normal. In this paper they purge over 1000 papers and found many of them with nonnormal distributions. More interestingly, this NUMBER IS EVEN HIGHER, because many papers disguise their experimental distributions as normal when, in reality, they are not.
 						</aside>
 						<h3>Many biological variables are not normal!</h3>
 						<img src="figs/portada-nonnormal.png" class='plain' style="margin-top: -2%; margin-bottom: -2%">
 						<p>231 curated papers with non-normal data: Gamma, Negative Binomial, Binomial, etc.</p>
 					</section>
 
+
 					<section style="text-align: left">
 						<aside class="notes">
-							CAMBIAR HISTORIA AQUI!!!!!!!!!!! Explicar que, por un lado, la media y std no son buenos descriptores para datos no normales (poner las diapos de distribuciones primero). En segundo lugar, los cientificos de poyata sobre todo, están más acostumbrados a fiarse solo de los descriptores para hacer inferencias sobre las diferencias poblacionales, y es que muchas veces los datasets pueden ser de naturaleza muy diferente, y mantener los descriptores igual. Para estos casos lo mejor es emplear descriptores robustos con no robustos, porque es menos probable que los dis datasets igualen ambos descriptores y, además, si comparamos media con mediana, podemos ver cuan sesgado es nuestro dataset.
+							To see the relevance of "classical estimators", we see that with the distributions that are not normal, and which are skewed to the right, the mean usually appears more to the right on those distributions. However, the mean should represent the "center of mass" of the distribution, and in that case it is more logical to find the mean nearer to the point of the distribution with more height. In that sense, the median is nearer to that "expected" point than the median. 
 						</aside>
-						<h2>Anscombe's quartet</h2>
+						<h3>Robust estimators for non-normal distributions</h3>
+						<img src="figs/IV-mean-M-dists.svg" class="plain">
+					</section>
+
+					<section style="text-align: left">
+						<aside class="notes">
+							Also, if we consider outliers, M and MAD are more reobust. In this image, we set one point, in red, as the moving point of the distribution, that is, the outlier. Blue and violet vertical lines represent the mean and median of the distributions, and horizontal lines represent variance and MAD. We see that, in the presence of the outlier, M and MAD don't change, whereas the mean and std change drastically.
+						</aside>
+						<h3>Robust estimators are better with outliers</h3>
+						<img src="figs/IV-meanMAD-scatter.svg" class="plain">
+					</section>
+
+
+
+					<section style="text-align: left" data-transition="none-out">
+						<aside class="notes">
+							Sometimes relying only on descriptors might be a problem. // Here I show you a dataset of 4 points that share statistical descriptors. You see those points... 
+						</aside>
+						<h3>Anscombe's quartet: why using descriptors is not enough</h3>
 						<p>Datasets from different distributions can share similar descriptors!</p>
 						<span class="fragment"><img src="figs/anscombe.png" class='plain' ></span>
 					</section>
 
-					<section style="text-align: left">
-						<h2>Anscombe's quartet</h2>
+					<section style="text-align: left" data-transition="none-in">
+						<h3>Anscombe's quartet: why using descriptors is not enough</h3>
+						<aside class="notes">
+							... and you see here the descriptors. They share mean, std and corr in X and Y variables. They don't share median or MAD, mainly because the datset has been crafted to be in this way, but it could be easily crafted to do so!
+						</aside>
 						<p>Datasets from different distributions can share similar descriptors!</p>
 						<table style="width:35%; font-size: 25px">
 							<tr><td><span style="color: #73AF48">$\mu_X$: 9</span></td></tr>
@@ -447,625 +469,611 @@
 
 					<section style="text-align: left">
 						<h2>Datasaurus!</h2>
-						<span class="fragment"><img src="figs/datasaurus.png" class='plain' style="width: 75%; text-align: center"></span>
-					</section>
-
-					<section style="text-align: left">
-						<h3>Therefore...</h3>
-						<span class="fragment"><p>beware of the mean, variance, correlation of datasets!</p></span>
-					</section>
-
-					<section style="text-align: left">
 						<aside class="notes">
-
+							It gets even more interesting with this dataset. This dataset was crafted by two guys in autodesk Justin Matejka and George Fitzmaurice. They based the rest of the datasets on the T-rex dataset using an algorithm.
 						</aside>
-						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
-						<span class="fragment">
-							<p>Assert normality of data: Shapiro-Wilk test <span style="color: #CC503E">(!!!)</span></p>
-						</span>
-						<span class="fragment"><p>If not, use <b>non-parametric</b> statistics</p>
-							<ul>
-								<li>t-test (1 var) $\rightarrow$ Wilcoxon rank test</li>
-								<li>t-test (2 var) $\rightarrow$ Mann-Whitney U test</li>
-
-							</ul>
-						</span>
-						<span class="fragment"><p>Use <b>robust</b> estimators</p>
-							<ul>
-								<li>Mean $\rightarrow$ median</li>
-								<li>Variance (2 var) $\rightarrow$ Mean Absolute Deviation</li>
-							</ul>
-						</span>
-					</section>
-
-					<section style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						<h2>Are robust estimators better?</h2>
-						<span class="fragment"><p>If the data is not normal or has outliers, <b>yes</b>!</p>
-							<p>Let's see some examples.</p>
-						</span>
-					</section>
-
-					<section style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						<h3>Robust estimators for non-normal distributions</h3>
-						<img src="figs/IV-mean-M-dists.svg" class="plain">
-					</section>
-
-					<section style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						<h3>Robust estimators are better with outliers</h3>
-						<img src="figs/IV-meanMAD-scatter.svg" class="plain">
-					</section>
-				</section>
-
-
-
-
-				<section>
-					<section data-background="#0F8554">
-						<h1>V</h1>
-						<h2>Low sample numbers</h2>
-					</section>
-
-					<section data-background="figs/saw.jpg" data-background-opacity=0.8>
-						<aside class="notes">
-
-						</aside>
-						<h1 style="color: white">Let's play a game</h1>
-						<h4 style="color: white">www.kahoot.it  >  Enter game PIN </h4>
-					</section>
-
-					<section data-transition="none-out">
-						<aside class="notes">
-
-						</aside>
-						
-						<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
-						<img src="figs/V-nonnormal-gray.svg" class="plain" style="margin-top: -3%">
-					</section>
-
-					<section data-transition="none-in none-out">
-						<aside class="notes">
-
-						</aside>
-						
-						<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
-						<img src="figs/V-nonnormal-color1.svg" class="plain" style="margin-top: -3%">
-					</section>
-
-					<section data-transition="none-in none-out">
-						<aside class="notes">
-
-						</aside>
-						
-						<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
-						<img src="figs/V-nonnormal-color2.svg" class="plain" style="margin-top: -3%">
-					</section>
-
-					<section data-transition="none-in">
-						<aside class="notes">
-
-						</aside>
-						
-						<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
-						<img src="figs/V-nonnormal-color3.svg" class="plain" style="margin-top: -3%">
-					</section>
-
-					<section data-transition="none-in">
-						<aside class="notes">
-
-						</aside>
-						
-						<h3>And this is not made up!</h3>
-						<pre><code data-trim data-noescape class="python">
-							import numpy as np
-							import scipy as scp
-
-							for seed in tqdm(range(10000)): #seed is 4327
-							n = 15
-							np.random.seed(seed)
-							N = scp.stats.norm(0,1)
-							S2 = scp.stats.skewnorm(2)
-							S10 = scp.stats.skewnorm(10)
-							Nrvs, S2rvs, S10rvs = N.rvs(n), S2.rvs(n), S10.rvs(n)
-
-							if np.mean(S2rvs) < 0.45 and np.mean(Nrvs) > 0.7:
-							break
-						</code></pre>
-					</section>
-
-					<section data-transition="none-in">
-						<aside class="notes">
-
-						</aside>
-						
-						<h3>Shapiro Wilk is even worse at guessing</h3>
-						<img src="figs/V-shapiro-N.svg" class="plain" width="45%" vertical-align="middle">
-						<img src="figs/V-nonnormal-dists-recolored.svg" class="plain" width="45%" vertical-align="middle" style="margin-top: -2%">
-
-					</section>
-
-					<section data-transition="none-in" style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						
-						<h3>So...</h3>
-						<ul>
-							<li>Biological variables might not be normal</li>
-							<li>Shapiro-Wilk test fails for low n</li>
-						</ul>
-
-						<span class="fragment" style="text-align: center"><p><b>Any solutions?</b></p></span>
-					</section>
-
-					<section style="text-align: left">
-						<aside class="notes">
-							The problem is that even this solution is not the perfect because it does not
-						</aside>
-						<h2>Solution (Assuming normality)<span class="fragment" style="color: #CC503E"> [hard?]</span></h2>
-						<span class="fragment"><p>Calculate sample size. If we expect $|\hat{\mu} - \mu| = D$ then, with $\alpha=0.05$ (one tail): </p>
-							<p style="text-align: center"> $\small{z_{0.05} = 1.65 \le \frac{\mu - \hat{\mu}}{\hat{\sigma}/\sqrt{n}} = \frac{D \sqrt{n}}{\hat{\sigma}} \iff n \ge  
-							\left(\frac{z_{0.05}\hat{\sigma}}{D}\right)^2}$</p>
-							<p style="text-align: center">$\color{#cc503e}{2.73\left( \frac{\hat{\sigma}}{D} \right)^2}$</p>
-						</span>
-						
-						<span class="fragment"><p>We barely ever have that info, and it does not acknowledge $\beta$.</p></span>
-					</section>
-
-					<section style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						<h2>Solution II<span class="fragment" style="color: #73af48"> [easy]</span></h2>
-						<span class="fragment"><p>Apply a lower $\alpha$: 0.01 or 0.005: is it better a FP or a FN?</p>
-						</span>
-						<span class="fragment"><p>Include effect sizes (Cohen's d, Hedges' g, <b>odds ratio</b>, <b>test statistics</b>).</p></span>
-						<span class="fragment"><p>95% Confidence Interval (parametric), 2 and 98 percentiles of Walsh averages (non-parametric).</p>
-						</span>
-					</section>
-
-					<section style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						<h3>Walsh averages</h3>					
-						<ul>
-							<li>For $a_1, a_2, \cdots, a_n$ measurements, take all $s_{ij} = (a_i + a_j)/2\;\;i \le j$</li>
-							<li>Order the list $(s_{11}, s_{12}, \cdots, )$ and take the 2 and 98 percentiles.</li>
-						</ul>
-						<img src="figs/V-walsh.svg" class="plain" style="text-align: : center">
-					</section>
-				</section>
-
-
-
-
-				<section>
-					<section data-background="#38A6A5">
-						<aside class="notes">
-							Una correlación es espúrea cuando a la hora de realizar una correlación, una variable que no debería correlar con 
-							otra, por la razón que sea, lo hace. Es decir, sería el equivalente a un falso positivo de correlaciones.
-						</aside>
-						<h1>VI</h1>
-						<h2>Spurious correlations</h2>
-					</section>
-
-					<section style="text-align: left">
-						<aside class="notes">
-							La correlación más común que se realiza en ciencia es la correlación de Pearson. Es una correlación útil, pero
-							tiene una serie de asunciones que no suelen respetarse. EXPLICAR CADA OPCIÓN
-						</aside>
-						<h2>Pearson correlation</h2>
-						<p>Really useful for common datasets. <span class="fragment">But it has some assumptions. The most troublesome ones are:</span></p>
-						<ul>
-							<span class="fragment"><li>No outliers</li></span>
-							<span class="fragment"><li>Normality</li></span>
-							<span class="fragment"><li>Continuity</li></span>
-							<span class="fragment"><li>Linearity</li></span>
-							<span class="fragment"><li>Random variables come from same distribution</li></span>
-						</ul>
-						<span class="fragment"><p>We will put examples of spurious correlations and their viable solutions.</p></span>
-					</section>
-
-
-					<section style="text-align: left">
-						<h2>No outliers [Problem]</h2>
-						<img src="figs/VI-correlation-pearson.svg" text-align="center" class="plain" width="100%">	
-					</section>
-
-					<section style="text-align: left">
-						<h3>Solution: Spearmann correlation</h3>
-						<span class="fragment"><p>Spearman correlation is calculated on the <b>rank</b> of the variables, not on their values.</p></span>
-						<span class="fragment"><p>More robust to <b>outliers</b>, <b>non-linearity</b> and <b>non-normality</b>.</p></span>	
-					</section>
-
-					<section style="text-align: left">
-						<h3>Solution: Spearmann correlation</h3>
-						<img src="figs/VI-correlation-spearman.svg" text-align="center" class="plain" width="100%">	
-					</section>
-
-					<section style="text-align: left">
-						<h3>Random variables from different distributions</h3>
-						<img src="figs/VI-correlation-blobs.svg" text-align="center" class="plain" width="100%">	
-					</section>
-
-
-					<section style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
-						<span class="fragment"><p>Assert normality and linearity. If not, try Spearmann correlation</p>
-						</span>
-						<span class="fragment"><p>Assert data is monomodal, or cannot be divided into categories.</p></span>
-						<span class="fragment"><p>Outliers: check meaningfulness, else Spearmann</p></span>
-					</section>
-
-				</section>
-
-
-
-
-
-
-
-
-
-				<section>
-					<section data-background="#1D6996">
-						<h1>VII</h1>
-						<h2>Circular analysis</h2>
-					</section>
-
-					<section data-background="figs/doggo.gif" data-background-opacity=0.5>
-						<h2>What is circular analysis?</h2>
-
-						<span class="fragment"><blockquote>
-							&ldquo;In statistics, circular analysis is the selection of the details of a data analysis using the data that is being analysed.&rdquo;
-							<a href="https://en.wikipedia.org/wiki/Circular_analysis"> Wikipedia </a>
-						</blockquote> </span>
-
-					</section>
-
-					<section>
-						<h2>It is easy to find patterns were there are none</h2>
-						<span class="fragment"><video src="figs/normal.mp4" width="49%"></video>
-							<video src="figs/line.mp4" width="49%"></video>
-							
+						<span class="fragment"><img src="figs/datasaurus.png" class='plain' style="width: 75%; text-align: center">
+							<a href="https://www.autodeskresearch.com/sites/default/files/SameStats-DifferentGraphs.pdf" style="font-size: 0.6em"> Source </a></span>
 
 						</section>
-						
+
 
 						<section style="text-align: left">
-							<h2>Examples of circular analysis</h2>
-							<ul>
-								<span class="fragment"><li>Genomic analysis: apply filter until <b>our</b> set of genes appears.</li></span>
-								<span class="fragment"><li>Apply filters/thresholds to points that do not "<b>fit the data</b>". </li></span>
-								<span class="fragment"><li>In functional magnetic resonance imaging (fMRI) data, pre-processing is often needed, and might be applied incrementally until the analysis 'works'. (Wikipedia)</li></span>
-							</ul>
-						</section>
-
-						<section style="text-align: left">
-							<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
-							<span class="fragment">Let's give a glance at machine learning (they have learned to do it well).</span>
-						</section>
-						
-
-						<section>
 							<aside class="notes">
-
+								// So... having seen that mean and std don't always serve as good descriptors, and that descriptors don't always summarize well the data, what can we do? // First, for the normality issue, // we can try to run a statistical test, the Shapiro-Wilk test, to assert if data is normal. However, this methods has some caveats that we will se later // On the other hand, if we have to do a hypothesis test on data, we can use non-parametric tests // and lastly, if we are unsure of the distribution of the data, it is rarely a mistake to use median and MAD.
 							</aside>
-							<img src="figs/ML-example-0.svg" class="plain" width="40%">
-						</section>
-
-
-						<section>
-							<aside class="notes">
-
-							</aside>
-							<img src="figs/ML-example-1.svg" class="plain" width="100%">
-						</section>
-
-
-						<section>
-							<aside class="notes">
-
-							</aside>
-							<img src="figs/ML-example-1.5.svg" class="plain" width="40%">
-						</section>
-
-						<section>
-							<aside class="notes">
-
-							</aside>
-							<img src="figs/ML-example-2.svg" class="plain" width="100%">
-						</section>
-
-
-						<section>
-							<aside class="notes">
-
-							</aside>
-							<img src="figs/ML-example-3.svg" class="plain" width="100%">
-						</section>
-
-						<section style="text-align: left">
-							<h2>So... how can we apply this?</h2>
-							<span class="fragment">If there are enough technical replicates / data points...</span>
-							<span class="fragment">subset the data into training / test set (60/40 or 70/30).</span>
-
-							<span class="fragment"><p></p>Consider the results as "valid" if they replicate in test set.</span>
-						</section>
-					</section>
-
-
-
-
-
-					<section>
-						<section data-background="#5F4690">
-							<h1>VIII</h1>
-							<h2>Failing to correct for <br> multiple comparisons</h2>
-						</section>
-
-						<section>
-							<h2 style="text-align: left" >One statistic test at a time!</h2>
-							<span class="fragment"> 
-								<p style="text-align: left">We <b>must not</b> forget that one test is for a specific variable: a gene, a voxel, an experiment... </p>
-								<img src="figs/p-value.svg" class="plain", style="width: 65%" align="middle"></span>
+							<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+							<span class="fragment">
+								<p>Assert normality of data: Shapiro-Wilk test <span style="color: #CC503E">(!!!)</span></p>
 							</span>
+							<span class="fragment"><p>If not, use <b>non-parametric</b> statistics</p>
+								<ul>
+									<li>t-test (1 var) $\rightarrow$ Wilcoxon rank test</li>
+									<li>t-test (2 var) $\rightarrow$ Mann-Whitney U test</li>
+
+								</ul>
+							</span>
+							<span class="fragment"><p>Use <b>robust</b> estimators</p>
+								<ul>
+									<li>Mean $\rightarrow$ median</li>
+									<li>Variance (2 var) $\rightarrow$ Mean Absolute Deviation</li>
+								</ul>
+							</span>
+						</section>
+
+						<section >
+							<aside class="notes">
+								And what about the estimators? Well, if possible, try to graph the data to see if there are outliers, or skews in the distribution.
+							</aside>
+							<h3 style="text-align: left">Also...</h3>
+
+							<blockquote style="text-align: left">
+								&ldquo;...make both calculations and graphs. Both sorts of output should be studied; each will contribute to understanding.&rdquo;
+								<p style="text-align: right">F. J. Anscombe, 1973 </p>
+							</blockquote> 
+							<span class="fragment"> </span>
+						</section>
+
+					</section>
 
 
+
+
+					<section>
+						<section data-background="#0F8554">
+							<h1>V</h1>
+							<h2>Low sample numbers</h2>
+							<aside class="notes">
+								Well, this is obvious, isn't it? But I hear the complaints from the biologists saying: "oh, but we cannot do 200 mice, as you do Computationals (TM)". Yeap, I know. But still, I want to convince you that using 3 mice only might not be the best idea to solve the cancer.
+							</aside>
+						</section>
+
+						<section data-background="figs/saw.jpg" data-background-opacity=0.8>
+							<aside class="notes">
+								So, to do that, we'll play a game. Open https://create.kahoot.it/share/guess-the-distribution/3c8a0adc-5ecf-4d77-ae6c-1825b714507c and host the game.
+							</aside>
+							<h1 style="color: white">Let's play a game</h1>
+							<h4 style="color: white">www.kahoot.it  >  Enter game PIN </h4>
 						</section>
 
 						<section data-transition="none-out">
-							<h3 style="text-align: left">A theoretical example: gene expression</h3>
-							<img src="figs/VIII-array-gray.svg" class="plain", style="width: 100%" align="middle"></span>
+							<aside class="notes">
+
+							</aside>
+
+							<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
+							<img src="figs/V-nonnormal-gray.svg" class="plain" style="margin-top: -3%">
 						</section>
 
 						<section data-transition="none-in none-out">
-							<h3 style="text-align: left">A theoretical example: gene expression</h3>
-							<img src="figs/VIII-array-color.svg" class="plain", style="width: 100%" align="middle"></span>
+							<aside class="notes">
+
+							</aside>
+
+							<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
+							<img src="figs/V-nonnormal-color1.svg" class="plain" style="margin-top: -3%">
+						</section>
+
+						<section data-transition="none-in none-out">
+							<aside class="notes">
+
+							</aside>
+
+							<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
+							<img src="figs/V-nonnormal-color2.svg" class="plain" style="margin-top: -3%">
 						</section>
 
 						<section data-transition="none-in">
-							<h3 style="text-align: left">A theoretical example: gene expression</h3>
-							<img src="figs/VIII-array-color-sorted.svg" class="plain", style="width: 100%" align="middle"></span>
+							<aside class="notes">
+
+							</aside>
+
+							<img src="figs/V-nonnormal-dists.svg" class="plain" style="margin-top: -2%">
+							<img src="figs/V-nonnormal-color3.svg" class="plain" style="margin-top: -3%">
 						</section>
 
-						<section data-background="https://media0.giphy.com/media/5NAWDQEPeFFle/giphy.gif?cid=790b761116c13fb79de8972d0ac86f4715dae09ae5942a18&rid=giphy.gif" 
-						data-background-opacity="0.4">
-						<h3 style="text-align: left">A practical example: a salmon in a social environment</h3>
+						<section data-transition="none-in">
+							<aside class="notes">
+								HERE IS THE CODE! I had to say that this distribution of points was not the most probable one, but hey, it appears there.
+							</aside>
 
-						<a href="https://teenspecies.github.io/pdfs/NeuralCorrelates.pdf" ><p style="font-size: 80%"> Bennett CM, Baird AA, Miller MB, Wolford GL. Neural correlates of interspecies perspective taking in the post-mortem Atlantic salmon: an argument for proper multiple comparisons correction
-							. <b> J Serendipitous Unexpected Results </b> 2009
-						; 1: 1–5.</a>
-					</section>
+							<h3>And this is not made up!</h3>
+							<pre><code data-trim data-noescape class="python">
+								import numpy as np
+								import scipy as scp
 
-					<section data-transition="none-out">
-						<img src="figs/salmon1.png" class="plain", style="width: 80%" align="middle"></span>
-						<img src="figs/salmon2.png" class="plain", style="width: 80%" align="middle"></span>
-					</section>
+								for seed in tqdm(range(10000)): #seed is 4327
+								n = 15
+								np.random.seed(seed)
+								N = scp.stats.norm(0,1)
+								S2 = scp.stats.skewnorm(2)
+								S10 = scp.stats.skewnorm(10)
+								Nrvs, S2rvs, S10rvs = N.rvs(n), S2.rvs(n), S10.rvs(n)
 
-					<section data-transition="none-out">
-						<img src="figs/salmon3.png" class="plain", style="width: 40%" align="middle"></span>
-						<img src="figs/salmon4.png" class="plain", style="width: 70%; margin-top: -2%" align="middle"></span>
-					</section>
+								if np.mean(S2rvs) < 0.45 and np.mean(Nrvs) > 0.7:
+								break
+							</code></pre>
+						</section>
 
-					<section style="text-align: left">
-						<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
-						<span class="fragment">
+						<section data-transition="none-in">
+							<aside class="notes">
+								Nonetheless, regardless of you guessing capabilities, I'm sure that Shapiro-Wilk test is even worse. For the Ns(10) it needs at least 40 points to start asserting that the distribution is not normal. And for Ns(2) it takes around 250.
+							</aside>
+
+							<h3>Shapiro Wilk is even worse at guessing</h3>
+							<img src="figs/V-shapiro-N.svg" class="plain" width="45%" vertical-align="middle">
+							<img src="figs/V-nonnormal-dists-recolored.svg" class="plain" width="45%" vertical-align="middle" style="margin-top: -2%">
+
+						</section>
+
+						<section data-transition="none-in" style="text-align: left">
+							<aside class="notes">
+								So, sometimes your variables might not follow a normal distribution and, if the data is not really really different, Shapiro-Wilk may fail to assert its normality if your number of points is small. // So, we want to run an experiment and we have all these problems. What can we do with that? 
+							</aside>
+
+							<h3>So...</h3>
 							<ul>
-								<span class="fragment"><li>Be aware that we are multitesting.</li></span>
-								<span class="fragment"><li>Apply more stringent p-values (GWAS: $\sim 10^{-8}$).</li></span>
-								<span class="fragment"><li>Apply multiple test correction.
-									<ul>
-										<span class="fragment"><li>Bonferroni: $\alpha^* = \frac{\alpha}{N}$. <span style="color: #909090">(Maybe too stringent)</span></li>
-										<li>Benjamini-Hochberg (aka FDR).</li></span>
-									</ul>
-								</li></span>
+								<li>Biological variables might not be normal</li>
+								<li>Shapiro-Wilk test fails for low n</li>
 							</ul>
-						</span>							
-					</section>
-				</section>
 
+							<span class="fragment" style="text-align: center"><p><b>Any solutions?</b></p></span>
+						</section>
 
+						<section style="text-align: left">
+							<aside class="notes">
+								First, if we want to run an experiment we can just assume our data is normal and try to calculate the sample size to run the test. In this case, if we want to run a simple t-test, the number of samples should be that. // But, we usually don't know which is the extent of the difference of means of the two populations and, second, it does not ackowledge the false positive rate.
+							</aside>
+							<h2>Solution (Assuming normality)<span class="fragment" style="color: #CC503E"> [hard?]</span></h2>
+							<span class="fragment"><p>Calculate sample size. If we expect $|\hat{\mu} - \mu| = D$ then, with $\alpha=0.05$ (one tail): </p>
+								<p style="text-align: center"> $\small{z_{0.05} = 1.65 \le \frac{\mu - \hat{\mu}}{\hat{\sigma}/\sqrt{n}} = \frac{D \sqrt{n}}{\hat{\sigma}} \iff n \ge  
+								\left(\frac{z_{0.05}\hat{\sigma}}{D}\right)^2}$</p>
+								<p style="text-align: center">$\color{#cc503e}{2.73\left( \frac{\hat{\sigma}}{D} \right)^2}$</p>
+							</span>
 
-				<section>
-					<section data-background="#94346E">
-						<h1>IX</h1>
-						<h2>Over-interpreting <br> non-significant results</h2>
-					</section>
+							<span class="fragment"><p>We barely ever have that info, and it does not acknowledge $\beta$.</p></span>
+						</section>
 
-					<section style="text-align: left">
-						<aside class="notes">
+						<section style="text-align: left">
+							<aside class="notes">
+								The solution // 1) is to apply a lower alpha, that is, if we are unsure of our results and we are searching for positive results, then it is better to lower tha alpha value. // Second is to include side effects. Some like odd ratio and test statistics help us identify better the range of uncertainty. Other effect sizes usually tell you how appart are the two distributions, and with that you can have a measure of "certainty" of to what extent we'll be able to tell the two populations apart. // 3) Lastly, we should always include the confidence of interval to test the extent of the data. If, for instance, I see a paper with a CI, I can to some extent believe better, or not, if the data are significative. // PASS TO THE NEXT POINT (SKIP WALSH)
+							</aside>
+							<h2>Solution II<span class="fragment" style="color: #73af48"> [easy]</span></h2>
+							<span class="fragment"><p>Apply a lower $\alpha$: 0.01 or 0.005 (and increase the FN rate!) Is it better a FP or a FN?</p>
+							</span>
+							<span class="fragment"><p>Include effect sizes (Cohen's d, Hedges' g, <b>odds ratio</b>, <b>test statistics</b>).</p></span>
+							<span class="fragment"><p>95% Confidence Interval (parametric), 2 and 98 percentiles of Walsh averages (non-parametric).</p>
+							</span>
+						</section>
 
-						</aside>
-						<h3>What happens when p > 0.05?</h3>
-						<span class="fragment">
-							The test is negative, there is no effect. 
-						</span>
-						<span class="fragment">
-							Well, not always. <p></p> It can imply that...
-						</span>
-						<ul>
-							<li class="fragment">
-								there is too much noise (resolutive power of technique not enough)
-							</li>
-							<li class="fragment">
-								the dataset is too small
-							</li>
-						</ul>
+						<section style="text-align: left">
+							<aside class="notes">
 
-						<span class="fragment">
-							<img src="figs/IX-p.svg" class="plain">
-						</span>
-					</section>
-					<section>
-						<aside class="notes">
-
-						</aside>
-						<img src="figs/H0H1.svg" class="plain" width="40%" style="margin-bottom: -2%">
-						<img src="figs/IX-p.svg" class="plain" width="80%" style="margin-bottom: -2%">
-						<img src="figs/IX-p-dists.svg" class="plain" width="70%" style="margin-bottom: -2%">
-					</section>
-					<section style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
-						<span class="fragment"><p>Assess the minimum $n$ and the statistical power before the analysis.</p>
-						</span>
-						<span class="fragment"><p>Assert the power is enough after analysis.</p></span>
-						<span class="fragment"><p>If not sure (or not possible), do not over-interpret negative results.</p></span>
-					</section>
-				</section>
-
-
-
-
-
-
-				<section>
-					<section data-background="#6F4070">
-						<h1>X</h1>
-						<h2>Correlation <span style="color: #000000"> <p> does not imply </p></span> causation!</h2>
+							</aside>
+							<h3>Walsh averages</h3>					
+							<ul>
+								<li>For $a_1, a_2, \cdots, a_n$ measurements, take all $s_{ij} = (a_i + a_j)/2\;\;i \le j$</li>
+								<li>Order the list $(s_{11}, s_{12}, \cdots, )$ and take the 2 and 98 percentiles.</li>
+							</ul>
+							<img src="figs/V-walsh.svg" class="plain" style="text-align: : center">
+						</section>
 					</section>
 
 
-					<section style="text-align: left">
-						<aside class="notes">
-
-						</aside>
-						<h3>Finding correlations is easy</h3>
-						<span class="fragment">
-							<h3 style="text-align: right">explaining their cause is not.</h3>
-							<p style="color: #909090; text-align: center; margin-top: 7%" > Let's see some examples.</p>
-						</span>
-					</section>
 
 
 					<section>
-						<aside class="notes">
+						<section data-background="#38A6A5">
+							<aside class="notes">
+								A correlation is spurious when one of the variabes that should not correlate with the other does so, for any reason. It would be the equivalent of a correlation false positive.
+							</aside>
+							<h1>VI</h1>
+							<h2>Spurious correlations</h2>
+						</section>
 
-						</aside>
-						<img src="figs/X-chart1.svg" class="plain" style="width: 80%">
-						<img src="figs/X-chart2.svg" class="plain" style="width: 80%; margin-top: -2%">
+						<section style="text-align: left">
+							<aside class="notes">
+								So, before speaking of spurious correlation, we will talk about Pearson correlation. Pearson correlation is still the most used correlation method in science, and it usually works well. // However, we all should know that this correlation works granted some assumptions are made // EXPLAIN EACH OPTION  // 
+							</aside>
+							<h2>Pearson correlation</h2>
+							<p>Really useful for common datasets. <span class="fragment">But it has some assumptions. The most troublesome ones are:</span></p>
+							<ul>
+								<span class="fragment"><li>No outliers</li></span>
+								<span class="fragment"><li>Normality</li></span>
+								<span class="fragment"><li>Continuity</li></span>
+								<span class="fragment"><li>Linearity</li></span>
+								<span class="fragment"><li>Random variables come from same distribution</li></span>
+							</ul>
+						</section>
+						<section style="text-align: left">
+							<h2>No outliers [Problem]</h2>
+							<img src="figs/VI-correlation-pearson.svg" text-align="center" class="plain" width="100%">	
+						</section>
+
+						<section style="text-align: left">
+							<h3>Solution: Spearmann correlation</h3>
+							<span class="fragment"><p>Spearman correlation is calculated on the <b>rank</b> of the variables, not on their values.</p></span>
+							<span class="fragment"><p>More robust to <b>outliers</b>, <b>non-linearity</b> and <b>non-normality</b>.</p></span>	
+						</section>
+
+						<section style="text-align: left">
+							<h3>Solution: Spearmann correlation</h3>
+							<img src="figs/VI-correlation-spearman.svg" text-align="center" class="plain" width="100%">	
+						</section>
+
+						<section style="text-align: left">
+							<h3>Random variables from different distributions</h3>
+							<img src="figs/VI-correlation-blobs.svg" text-align="center" class="plain" width="100%">	
+						</section>
+
+
+						<section style="text-align: left">
+							<aside class="notes">
+								So, what can we do to improve our analysis when doing correlations? First, we should check that data is normal and linear, if not, try Spearmann // We also should look for biases in our data that makes us think it is not monomodal. If so, we should divide the dataset in each unit, and the run the correlation on them. If we want to compare the two distributions, a correlation is not the best option. // 
+								Lastly, if there are outliers in our data, we should check if they have a biological value. If not, maybe Spearmann correlation is better.
+							</aside>
+							<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
+							<span class="fragment"><p>Assert normality and linearity. If not, try Spearmann correlation</p>
+							</span>
+							<span class="fragment"><p>Assert data is monomodal, or cannot be divided into categories.</p></span>
+							<span class="fragment"><p>Outliers: check meaningfulness, else Spearmann</p></span>
+						</section>
+
 					</section>
+
+
+
+
+
 
 
 					<section>
-						<aside class="notes">
+						<section data-background="#1D6996">
+							<h1>VII</h1>
+							<h2>Circular analysis</h2>
+						</section>
 
-						</aside>
-						<h3 style="text-align: left;">Nobel awards VS ... </h3>  
-						<img src="figs/X-Nobel-grafica.png" class="plain" style="width: 100%">
-						<a href="https://academic.oup.com/jn/article/143/6/931/4571741" > <p style="text-align: right; font-size: 0.5em" >10.3945/jn.113.174813</p>
-						</a>
+						<section data-background="figs/doggo.gif" data-background-opacity=0.5>
+							<h2>What is circular analysis?</h2>
+
+							<span class="fragment"><blockquote>
+								&ldquo;In statistics, circular analysis is the selection of the details of a data analysis using the data that is being analysed.&rdquo;
+								<a href="https://en.wikipedia.org/wiki/Circular_analysis"> Wikipedia </a>
+							</blockquote> </span>
+
+						</section>
+
+						<section>
+							<h2>It is easy to find patterns were there are none</h2>
+							<span class="fragment"><video src="figs/normal.mp4" width="49%"></video>
+								<video src="figs/line.mp4" width="49%"></video>
+
+
+							</section>
+
+
+							<section style="text-align: left">
+								<h2>Examples of circular analysis</h2>
+								<ul>
+									<span class="fragment"><li>Genomic analysis: apply filter until <b>our</b> set of genes appears.</li></span>
+									<span class="fragment"><li>Apply filters/thresholds to points that do not "<b>fit the data</b>". </li></span>
+									<span class="fragment"><li>In functional magnetic resonance imaging (fMRI) data, pre-processing is often needed, and might be applied incrementally until the analysis 'works'. (Wikipedia)</li></span>
+								</ul>
+							</section>
+
+							<section style="text-align: left">
+								<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
+								<span class="fragment">Let's give a glance at machine learning (they have learned to do it well).</span>
+							</section>
+
+
+							<section>
+								<aside class="notes">
+
+								</aside>
+								<img src="figs/ML-example-0.svg" class="plain" width="40%">
+							</section>
+
+
+							<section>
+								<aside class="notes">
+
+								</aside>
+								<img src="figs/ML-example-1.svg" class="plain" width="100%">
+							</section>
+
+
+							<section>
+								<aside class="notes">
+
+								</aside>
+								<img src="figs/ML-example-1.5.svg" class="plain" width="40%">
+							</section>
+
+							<section>
+								<aside class="notes">
+
+								</aside>
+								<img src="figs/ML-example-2.svg" class="plain" width="100%">
+							</section>
+
+
+							<section>
+								<aside class="notes">
+
+								</aside>
+								<img src="figs/ML-example-3.svg" class="plain" width="100%">
+							</section>
+
+							<section style="text-align: left">
+								<h2>So... how can we apply this?</h2>
+								<span class="fragment">If there are enough technical replicates / data points...</span>
+								<span class="fragment">subset the data into training / test set (60/40 or 70/30).</span>
+
+								<span class="fragment"><p></p>Consider the results as "valid" if they replicate in test set.</span>
+							</section>
+						</section>
+
+
+
+
+
+						<section>
+							<section data-background="#5F4690">
+								<h1>VIII</h1>
+								<h2>Failing to correct for <br> multiple comparisons</h2>
+							</section>
+
+							<section>
+								<h2 style="text-align: left" >One statistic test at a time!</h2>
+								<span class="fragment"> 
+									<p style="text-align: left">We <b>must not</b> forget that one test is for a specific variable: a gene, a voxel, an experiment... </p>
+									<img src="figs/p-value.svg" class="plain", style="width: 65%" align="middle"></span>
+								</span>
+
+
+							</section>
+
+							<section data-transition="none-out">
+								<h3 style="text-align: left">A theoretical example: gene expression</h3>
+								<img src="figs/VIII-array-gray.svg" class="plain", style="width: 100%" align="middle"></span>
+							</section>
+
+							<section data-transition="none-in none-out">
+								<h3 style="text-align: left">A theoretical example: gene expression</h3>
+								<img src="figs/VIII-array-color.svg" class="plain", style="width: 100%" align="middle"></span>
+							</section>
+
+							<section data-transition="none-in">
+								<h3 style="text-align: left">A theoretical example: gene expression</h3>
+								<img src="figs/VIII-array-color-sorted.svg" class="plain", style="width: 100%" align="middle"></span>
+							</section>
+
+							<section data-background="https://media0.giphy.com/media/5NAWDQEPeFFle/giphy.gif?cid=790b761116c13fb79de8972d0ac86f4715dae09ae5942a18&rid=giphy.gif" 
+							data-background-opacity="0.4">
+							<h3 style="text-align: left">A practical example: a salmon in a social environment</h3>
+
+							<a href="https://teenspecies.github.io/pdfs/NeuralCorrelates.pdf" ><p style="font-size: 80%"> Bennett CM, Baird AA, Miller MB, Wolford GL. Neural correlates of interspecies perspective taking in the post-mortem Atlantic salmon: an argument for proper multiple comparisons correction
+								. <b> J Serendipitous Unexpected Results </b> 2009
+							; 1: 1–5.</a>
+						</section>
+
+						<section data-transition="none-out">
+							<img src="figs/salmon1.png" class="plain", style="width: 80%" align="middle"></span>
+							<img src="figs/salmon2.png" class="plain", style="width: 80%" align="middle"></span>
+						</section>
+
+						<section data-transition="none-out">
+							<img src="figs/salmon3.png" class="plain", style="width: 40%" align="middle"></span>
+							<img src="figs/salmon4.png" class="plain", style="width: 70%; margin-top: -2%" align="middle"></span>
+						</section>
+
+						<section style="text-align: left">
+							<h2>Solution <span class="fragment" style="color: #73AF48">[easy]</span></h2>
+							<span class="fragment">
+								<ul>
+									<span class="fragment"><li>Be aware that we are multitesting.</li></span>
+									<span class="fragment"><li>Apply more stringent p-values (GWAS: $\sim 10^{-8}$).</li></span>
+									<span class="fragment"><li>Apply multiple test correction.
+										<ul>
+											<span class="fragment"><li>Bonferroni: $\alpha^* = \frac{\alpha}{N}$. <span style="color: #909090">(Maybe too stringent)</span></li>
+											<li>Benjamini-Hochberg (aka FDR).</li></span>
+										</ul>
+									</li></span>
+								</ul>
+							</span>							
+						</section>
 					</section>
 
 
-					<section>
-						<aside class="notes">
-
-						</aside>
-						<img src="figs/X-real-example.png" class="plain" style="width: 80%">
-					</section>
-
-
-					<section>
-						<aside class="notes">
-
-						</aside>
-						<h3 style="text-align: left;">It all boils down to... </h3> <h3 style="text-align: right" class="fragment">confounding variables. </h3> 
-						<span class="fragment"><img src="figs/X-corr-cas.svg" class="plain" style="width: 40%"></span>
-						<span class="fragment"><p>Maybe more talkative / social people are perceived as more attractive, and also find better jobs? </p></span>
-					</section>
-
-
-					<section>
-						<aside class="notes">
-
-						</aside>
-						<h3 style="text-align: left;">A more important case<span style="text-align: right" class="fragment">: smoking causes cancer</span></h3> 
-						<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe a better diagnosis implied a higher detection rate.</p></span>
-						<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe people genetically predispose to smoking have higher chances of lung cancer.</p></span>
-						<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe industrial development incited easyness to tobacco, and easyness to cars $\rightarrow$ cancers are cause by pollution in general.</p></span>
-						<span></span>
-						<span class="fragment"><img src="figs/X-smoke-cancer.png" class="plain" style="width: 60%; margin-bottom: -3%"></span>
-
-					</section>
-
-					<section style="text-align: left">
-						<h2>Solution <span class="fragment" style="color: #CC503E">[hard]</span></h2>
-						<span class="fragment"><p>Be aware of possible underlaying confounding variables, and try to detect them</p>
-						</span>
-						<span class="fragment"><p>If confounding variables are found, try to adjust data.</p>
-						</span>
-						<span class="fragment"><p>Some methods exist to determine causality (for time series): Convergent Cross Mapping, Granger causality test.</p>
-						</span>
-						<span class="fragment"><p>If unsure, present conclusions as tentative</p></span>
-					</section>
-				</section>
-
-
-
-
-
-
-				<section>
-					<section data-background="#994E95">
-						<h1>.</h1>
-						<h2>Conclusions</h2>
-					</section>
-
-					<section>
-						<aside class="notes">
-							Given the amount of *only* statistical reasons a experiment might go awry, it is not uncommon to suffer from a 
-							reproducibility crisis. Indeed, nature did a poll to 1576 scientists and found that 52% of them believed there was a significant reproducibility crisis, and 38% believed there was a slight crisis. We indeed can see here that, regardless of discipline, more than half of the scientists failed to replicate either their own or else's work. 
-							Poor statistical analysis is one of the main causes for that outcome, but we should consider more important others as well, such as the pressure to publish or the insufficient mentoring.
-
-						</aside>
-						<h3 style="text-align: left;">Reproducibility matters</h3> 
-						<img src="figs/nature-reproducibility.png" class="plain" style="width: 100%">
-						<p style="text-align: right"><a href="https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970" style="font-size: 0.5em; ¡">1,500 scientists lift the lid on reproducibility</a></p>
-					</section> 
-
-					<section>
-						<aside class="notes">
-							Take home message:
-
-						</aside>
-						<h2>Take home message</h2> 
-						<h4 class="fragment">Sometimes science is a b*tch </h4>
-						<h4 class="fragment">statiticians can't do magic</h4>
-						<span class="fragment"> <h4>and when they try, they end up like this</h4>
-							<img src="figs/monkey.gif" class="plain"> </span>
-						</section> 
-					</section>
 
 					<section>
 						<section data-background="#94346E">
-							<h1>Thanks!</h1>
+							<h1>IX</h1>
+							<h2>Over-interpreting <br> non-significant results</h2>
+						</section>
+
+						<section style="text-align: left">
+							<aside class="notes">
+
+							</aside>
+							<h3>What happens when p > 0.05?</h3>
+							<span class="fragment">
+								The test is negative, there is no effect. 
+							</span>
+							<span class="fragment">
+								Well, not always. <p></p> It can imply that...
+							</span>
+							<ul>
+								<li class="fragment">
+									there is too much noise (resolutive power of technique not enough)
+								</li>
+								<li class="fragment">
+									the dataset is too small
+								</li>
+							</ul>
+
+							<span class="fragment">
+								<img src="figs/IX-p.svg" class="plain">
+							</span>
+						</section>
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<img src="figs/H0H1.svg" class="plain" width="40%" style="margin-bottom: -2%">
+							<img src="figs/IX-p.svg" class="plain" width="80%" style="margin-bottom: -2%">
+							<img src="figs/IX-p-dists.svg" class="plain" width="70%" style="margin-bottom: -2%">
+						</section>
+						<section style="text-align: left">
+							<aside class="notes">
+
+							</aside>
+							<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
+							<span class="fragment"><p>Assess the minimum $n$ and the statistical power before the analysis.</p>
+							</span>
+							<span class="fragment"><p>Assert the power is enough after analysis.</p></span>
+							<span class="fragment"><p>If not sure (or not possible), do not over-interpret negative results.</p></span>
 						</section>
 					</section>
 
 
-				</section>
+
+
+
+
+					<section>
+						<section data-background="#6F4070">
+							<h1>X</h1>
+							<h2>Correlation <span style="color: #000000"> <p> does not imply </p></span> causation!</h2>
+						</section>
+
+
+						<section style="text-align: left">
+							<aside class="notes">
+
+							</aside>
+							<h3>Finding correlations is easy</h3>
+							<span class="fragment">
+								<h3 style="text-align: right">explaining their cause is not.</h3>
+								<p style="color: #909090; text-align: center; margin-top: 7%" > Let's see some examples.</p>
+							</span>
+						</section>
+
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<img src="figs/X-chart1.svg" class="plain" style="width: 80%">
+							<img src="figs/X-chart2.svg" class="plain" style="width: 80%; margin-top: -2%">
+						</section>
+
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<h3 style="text-align: left;">Nobel awards VS ... </h3>  
+							<img src="figs/X-Nobel-grafica.png" class="plain" style="width: 100%">
+							<a href="https://academic.oup.com/jn/article/143/6/931/4571741" > <p style="text-align: right; font-size: 0.5em" >10.3945/jn.113.174813</p>
+							</a>
+						</section>
+
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<img src="figs/X-real-example.png" class="plain" style="width: 80%">
+						</section>
+
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<h3 style="text-align: left;">It all boils down to... </h3> <h3 style="text-align: right" class="fragment">confounding variables. </h3> 
+							<span class="fragment"><img src="figs/X-corr-cas.svg" class="plain" style="width: 40%"></span>
+							<span class="fragment"><p>Maybe more talkative / social people are perceived as more attractive, and also find better jobs? </p></span>
+						</section>
+
+
+						<section>
+							<aside class="notes">
+
+							</aside>
+							<h3 style="text-align: left;">A more important case<span style="text-align: right" class="fragment">: smoking causes cancer</span></h3> 
+							<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe a better diagnosis implied a higher detection rate.</p></span>
+							<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe people genetically predispose to smoking have higher chances of lung cancer.</p></span>
+							<span class="fragment" style="text-align: left;"><p style="font-size: 80%">Maybe industrial development incited easyness to tobacco, and easyness to cars $\rightarrow$ cancers are cause by pollution in general.</p></span>
+							<span></span>
+							<span class="fragment"><img src="figs/X-smoke-cancer.png" class="plain" style="width: 60%; margin-bottom: -3%"></span>
+
+						</section>
+
+						<section style="text-align: left">
+							<h2>Solution <span class="fragment" style="color: #CC503E">[hard]</span></h2>
+							<span class="fragment"><p>Be aware of possible underlaying confounding variables, and try to detect them</p>
+							</span>
+							<span class="fragment"><p>If confounding variables are found, try to adjust data.</p>
+							</span>
+							<span class="fragment"><p>Some methods exist to determine causality (for time series): Convergent Cross Mapping, Granger causality test.</p>
+							</span>
+							<span class="fragment"><p>If unsure, present conclusions as tentative</p></span>
+						</section>
+					</section>
+
+
+
+
+
+
+					<section>
+						<section data-background="#994E95">
+							<h1>.</h1>
+							<h2>Conclusions</h2>
+						</section>
+
+						<section>
+							<aside class="notes">
+								Given the amount of *only* statistical reasons a experiment might go awry, it is not uncommon to suffer from a 
+								reproducibility crisis. Indeed, nature did a poll to 1576 scientists and found that 52% of them believed there was a significant reproducibility crisis, and 38% believed there was a slight crisis. We indeed can see here that, regardless of discipline, more than half of the scientists failed to replicate either their own or else's work. 
+								Poor statistical analysis is one of the main causes for that outcome, but we should consider more important others as well, such as the pressure to publish or the insufficient mentoring.
+
+							</aside>
+							<h3 style="text-align: left;">Reproducibility matters</h3> 
+							<img src="figs/nature-reproducibility.png" class="plain" style="width: 100%">
+							<p style="text-align: right"><a href="https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970" style="font-size: 0.5em; ¡">1,500 scientists lift the lid on reproducibility</a></p>
+						</section> 
+
+						<section>
+							<aside class="notes">
+								Take home message:
+
+							</aside>
+							<h2>Take home message</h2> 
+							<h4 class="fragment">Sometimes science is a b*tch </h4>
+							<h4 class="fragment">statiticians can't do magic</h4>
+							<span class="fragment"> <h4>and when they try, they end up like this</h4>
+								<img src="figs/monkey.gif" class="plain"> </span>
+							</section> 
+						</section>
+
+						<section>
+							<section data-background="#94346E">
+								<h1>Thanks!</h1>
+							</section>
+						</section>
+
+
+					</section>
+				</div>
 			</div>
-		</div>
 
-		<script src="js/reveal.js"></script>
+			<script src="js/reveal.js"></script>
 
-		<script>
+			<script>
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
