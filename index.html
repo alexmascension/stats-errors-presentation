@@ -731,12 +731,17 @@
 						<section data-background="#1D6996">
 							<h1>VII</h1>
 							<h2>Circular analysis</h2>
+							<aside class="notes">
+								So, what id circular analyisis? The best explanatio I found was on Wikipedia // 
+							</aside>
 						</section>
 
 						<section data-background="figs/doggo.gif" data-background-opacity=0.5>
 							<h2>What is circular analysis?</h2>
-
-							<span class="fragment"><blockquote>
+							<aside class="notes">
+								The basic Idea of circular analysis is that we usually find a subset of the data more interesting, or that we can filter variables to make two "noisy", uncorrelated characteristics be more similar between them.
+							</aside>
+							<span><blockquote>
 								&ldquo;In statistics, circular analysis is the selection of the details of a data analysis using the data that is being analysed.&rdquo;
 								<a href="https://en.wikipedia.org/wiki/Circular_analysis"> Wikipedia </a>
 							</blockquote> </span>
@@ -744,6 +749,9 @@
 						</section>
 
 						<section>
+							<aside class="notes">
+								As an example, let's imagine that we have a dataset that has two groups, and we start removing some variables so that we can make two discernible groups. In this case I run a simulation to select data so that their corelations are as different as possible. If you select the points correctly, you can achieve that very easily. Then, if you apply any "shady" method to do that selection, you are doing circular analysis.
+							</aside>
 							<h2>It is easy to find patterns were there are none</h2>
 							<span class="fragment"><video src="figs/normal.mp4" width="49%"></video>
 								<video src="figs/line.mp4" width="49%"></video>
@@ -753,6 +761,9 @@
 
 
 							<section style="text-align: left">
+								<aside class="notes">
+									So, these are examples of circular analysis commonly done in science.
+								</aside>
 								<h2>Examples of circular analysis</h2>
 								<ul>
 									<span class="fragment"><li>Genomic analysis: apply filter until <b>our</b> set of genes appears.</li></span>
@@ -762,6 +773,9 @@
 							</section>
 
 							<section style="text-align: left">
+								<aside class="notes">
+									And, what can we do to solve that? // In machine learning they do something that is really common, and which is "easily" applicable to this problem.
+								</aside>
 								<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
 								<span class="fragment">Let's give a glance at machine learning (they have learned to do it well).</span>
 							</section>
@@ -769,7 +783,7 @@
 
 							<section>
 								<aside class="notes">
-
+									One of ML typical problems is regression. That, is, find a function that fits those points in screen. A good regression should allow us to infer the Y-value given any X-values as good as possible. So, we have these points here and, what do we do then to do a regression? // ->
 								</aside>
 								<img src="figs/ML-example-0.svg" class="plain" width="40%">
 							</section>
@@ -777,7 +791,7 @@
 
 							<section>
 								<aside class="notes">
-
+									Well, for this data points we can adjust as many functions as we want. Here, for instance, we have fitted a line, a curve and a polynomial. In order to measure the goodness of fit, we measure a distance. Here the distance is the Y-distance between the function and the point. The final distance is the sum of distances for each point. So, for that case, the function that has the smallest error for our dataset is the polynomial. BUT, is it really the best?
 								</aside>
 								<img src="figs/ML-example-1.svg" class="plain" width="100%">
 							</section>
@@ -785,14 +799,14 @@
 
 							<section>
 								<aside class="notes">
-
+									Let's imagine that we add these three points here.
 								</aside>
 								<img src="figs/ML-example-1.5.svg" class="plain" width="40%">
 							</section>
 
 							<section>
 								<aside class="notes">
-
+									And now we also measu the distance between the points and the already predicted function.
 								</aside>
 								<img src="figs/ML-example-2.svg" class="plain" width="100%">
 							</section>
@@ -800,7 +814,8 @@
 
 							<section>
 								<aside class="notes">
-
+									If we now compare the distance of the training set (gray) and test set (colors), we have three main options:
+									EXPLAIN THEM 
 								</aside>
 								<img src="figs/ML-example-3.svg" class="plain" width="100%">
 							</section>
@@ -808,7 +823,7 @@
 							<section style="text-align: left">
 								<h2>So... how can we apply this?</h2>
 								<span class="fragment">If there are enough technical replicates / data points...</span>
-								<span class="fragment">subset the data into training / test set (60/40 or 70/30).</span>
+								<span class="fragment">subset the data into "training" / "test" sets (60/40 or 70/30).</span>
 
 								<span class="fragment"><p></p>Consider the results as "valid" if they replicate in test set.</span>
 							</section>
@@ -835,17 +850,24 @@
 							</section>
 
 							<section data-transition="none-out">
-								<h3 style="text-align: left">A theoretical example: gene expression</h3>
+								<aside class="notes">
+									To put you an example of the relevance of multiple testing, let's imagine that we measured the gene expression of two CONTROL groups, and for each gene we did a t-test. Those are the t-values. Then, t-value distribution will always be tailed, and under the H0 testing we should say that very low or vey high t-values should be "selected" as "significant" for the testing.
+								</aside>
+								<h3 style="text-align: left">A theoretical example</h3>
 								<img src="figs/VIII-array-gray.svg" class="plain", style="width: 100%" align="middle"></span>
 							</section>
 
 							<section data-transition="none-in none-out">
-								<h3 style="text-align: left">A theoretical example: gene expression</h3>
+								<aside class="notes">
+									If we set an alpha of 0.05 all colored dots would be selected as significantly expressed, when in reality they belong to the control population. If we order the values...
+								</aside>
+								<h3 style="text-align: left">A theoretical example</h3>
 								<img src="figs/VIII-array-color.svg" class="plain", style="width: 100%" align="middle"></span>
 							</section>
 
 							<section data-transition="none-in">
-								<h3 style="text-align: left">A theoretical example: gene expression</h3>
+								We would see that there would be 2005 genes with significant differential expression at 0.05, and 190 if we set alpha at 0.005. And this is indeed normal, because the alpha indeed indicates the probability of saying that a gene is a statistically significant DEG when in reality it is not.
+								<h3 style="text-align: left">A theoretical example</h3>
 								<img src="figs/VIII-array-color-sorted.svg" class="plain", style="width: 100%" align="middle"></span>
 							</section>
 
@@ -895,7 +917,7 @@
 
 						<section style="text-align: left">
 							<aside class="notes">
-
+								Can we assume that if the test turned out non-significant, then our experiment is negative? // Well, the test may turn out negative due to several reasons. // EXPLAIN IMAGE > UP = TOO MUCH NOISE / DOWN = SMALL DATASET
 							</aside>
 							<h3>What happens when p > 0.05?</h3>
 							<span class="fragment">
@@ -919,7 +941,7 @@
 						</section>
 						<section>
 							<aside class="notes">
-
+								Indeed if we recall the slides from the beginning, apart from looking at the positives, we may need to look also at the negtives. In that case, we should look at the power. In both cases, the power is quite small.
 							</aside>
 							<img src="figs/H0H1.svg" class="plain" width="40%" style="margin-bottom: -2%">
 							<img src="figs/IX-p.svg" class="plain" width="80%" style="margin-bottom: -2%">
@@ -932,7 +954,6 @@
 							<h2>Solution <span class="fragment" style="color: #EDAD08">[medium]</span></h2>
 							<span class="fragment"><p>Assess the minimum $n$ and the statistical power before the analysis.</p>
 							</span>
-							<span class="fragment"><p>Assert the power is enough after analysis.</p></span>
 							<span class="fragment"><p>If not sure (or not possible), do not over-interpret negative results.</p></span>
 						</section>
 					</section>
