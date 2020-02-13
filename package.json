@@ -42,5 +42,8 @@
     "node-sass": "^4.13.1",
     "socket.io": "^2.2.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^2.1.1"
+  }
 }
